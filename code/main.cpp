@@ -4,6 +4,7 @@
 #include"Student.h"
 #include"person.h"
 #include"RecordStudent.h"
+#include "Teacher.h"
 
 using namespace std;
 
@@ -62,7 +63,7 @@ void select_menu_item(int input) {
       menu_item_1();
       break;
   case 2:
-      //menu_item_2();
+      menu_item_2();
       break;
   case 3:
       //menu_item_3();
@@ -81,7 +82,7 @@ void print_main_menu() {
   std::cout << "\n----- Choose Your Identity -----\n";
   std::cout << "|\t\t\t\t|\n";
   std::cout << "|\t1. Student    \t\t|\n";
-  std::cout << "|\t2. Menu item 2\t\t|\n";
+  std::cout << "|\t2. Teacher\t\t|\n";
   std::cout << "|\t3. Menu item 3\t\t|\n";
   std::cout << "|\t4. Menu item 4\t\t|\n";
   std::cout << "|\t5. Exit\t\t\t|\n";
@@ -133,15 +134,32 @@ void menu_item_1() {
         }
     }
 }
-// void menu_item_2() {
-//   std::cout << "\n>> Menu 2\n";
-//   std::cout << "\nPlease enter 2 integer\n";
-//   int a,b;
-//   std::cin >>a >>b;
-//   std::cout << "the sum of a and b is " << a-b <<std::endl;
-//   // you can call a function from here that handles menu 2
-//   go_back_to_main();
-// }
+ void menu_item_2() {
+     while (1) {
+         Teacher t1("Tom", 111, "111");
+         t1.operationMenu();
+         int select = get_user_input();
+         //switch (select) {
+         //case 0:
+         //    cout << "You have Logged out." << endl;
+         //    exit(1);
+         //    break;
+         //case 1:
+         //    t1.checkApplication();
+         //    break;
+         //case 2:
+         //    t1.permitApplication();
+         //    break;
+         //default:
+         //    cout << "You have Logged out." << endl;
+         //    exit(1);
+         //    break;
+
+         //}
+     }
+
+
+ }
 // void menu_item_3() {
 //   std::cout << "\n>> Menu 3\n";
 //   std::cout << "\nPlease enter 2 integer\n";

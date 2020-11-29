@@ -1,4 +1,5 @@
 # ELEC2645GP
-This is the develop branch  
-** please do not git push here **  
+This is the feature/verson1 branch
+
+Already modify the previous file into the new project
 

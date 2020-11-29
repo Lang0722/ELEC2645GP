@@ -1,5 +1,11 @@
-#include <iostream>
+#include<iostream>
+#include<string>
 #include <regex>
+#include"Student.h"
+#include"person.h"
+#include"RecordStudent.h"
+
+using namespace std;
 
 void main_menu();
 int get_user_input();
@@ -52,33 +58,34 @@ int get_user_input() {
 
 void select_menu_item(int input) {
   switch (input) {
-    case 1:
+  case 1:
       menu_item_1();
       break;
-    case 2:
-      menu_item_2();
+  case 2:
+      //menu_item_2();
       break;
-    case 3:
-      menu_item_3();
+  case 3:
+      //menu_item_3();
       break;
-    case 4:
-      menu_item_4();
+  case 4:
+      //menu_item_4();
       break;
-    default:
+  default:
+      cout << "You have Logged out." << endl;
       exit(1);
       break;
   }
 }
 
 void print_main_menu() {
-  std::cout << "\n----------- Main menu -----------\n";
-  std::cout << "|\t\t\t\t|\n";
-  std::cout << "|\t1. Menu item 1\t\t|\n";
+  std::cout << "\n----- Choose Your Identity -----\n";
+  std::cout << "|\t\t\t\t\t\t|\n";
+  std::cout << "|\t1. Student    \t\t|\n";
   std::cout << "|\t2. Menu item 2\t\t|\n";
   std::cout << "|\t3. Menu item 3\t\t|\n";
   std::cout << "|\t4. Menu item 4\t\t|\n";
-  std::cout << "|\t5. Exit\t\t\t|\n";
-  std::cout << "|\t\t\t\t|\n";
+  std::cout << "|\t5. Exit\t\t\t\t|\n";
+  std::cout << "|\t\t\t\t\t\t|\n";
   std::cout << "---------------------------------\n";
 }
 
@@ -97,38 +104,59 @@ bool is_integer(std::string num) {
 }
 
 void menu_item_1() {
-  std::cout << "\n>> Menu 1\n";
-  std::cout << "\nPlease enter 2 integer\n";5
-  int a,b;
-  std::cin >>a >>b;
-  std::cout << "the sum of a and b is " << a+b <<std::endl; 
-  // you can call a function from here that handles menu 1
-  go_back_to_main();
+    while (1) {
+        RecordStudent* record = new RecordStudent();
+        record->updateRecord("xx", 1, "pw");
+        Student* student = new Student("Lang", 123123, "123123");
+        student->operationMenu();
+        //*student = (record->Data.find(1)->second);
+        int select = get_user_input();
+        switch (select) {
+        case 0:
+            cout << "You have Logged out." << endl;
+            exit(1);
+            break;
+        case 1:
+            student->applyTheLab();
+            break;
+        case 2:
+            student->checkStatus();
+            break;
+        case 3:
+            student->cancleOrder();
+            break;
+        default:
+            cout << "You have Logged out." << endl;
+            exit(1);
+            break;
+
+        }
+    }
 }
-void menu_item_2() {
-  std::cout << "\n>> Menu 2\n";
-  std::cout << "\nPlease enter 2 integer\n";
-  int a,b;
-  std::cin >>a >>b;
-  std::cout << "the sum of a and b is " << a-b <<std::endl;
-  // you can call a function from here that handles menu 2
-  go_back_to_main();
-}
-void menu_item_3() {
-  std::cout << "\n>> Menu 3\n";
-  std::cout << "\nPlease enter 2 integer\n";
-  int a,b;
-  std::cin >>a >>b;
-  std::cout << "the sum of a and b is " << a*b <<std::endl;
-  // you can call a function from here that handles menu 3
-  go_back_to_main();
-}
-void menu_item_4() {
-  std::cout << "\n>> Menu 4\n";
-  std::cout << "\nPlease enter 2 integer\n";
-  int a,b;
-  std::cin >>a >>b;
-  std::cout << "the sum of a and b is " << (float)a/b <<std::endl;
-  // you can call a function from here that handles menu 4
-  go_back_to_main();
-}
+// void menu_item_2() {
+//   std::cout << "\n>> Menu 2\n";
+//   std::cout << "\nPlease enter 2 integer\n";
+//   int a,b;
+//   std::cin >>a >>b;
+//   std::cout << "the sum of a and b is " << a-b <<std::endl;
+//   // you can call a function from here that handles menu 2
+//   go_back_to_main();
+// }
+// void menu_item_3() {
+//   std::cout << "\n>> Menu 3\n";
+//   std::cout << "\nPlease enter 2 integer\n";
+//   int a,b;
+//   std::cin >>a >>b;
+//   std::cout << "the sum of a and b is " << a*b <<std::endl;
+//   // you can call a function from here that handles menu 3
+//   go_back_to_main();
+// }
+// void menu_item_4() {
+//   std::cout << "\n>> Menu 4\n";
+//   std::cout << "\nPlease enter 2 integer\n";
+//   int a,b;
+//   std::cin >>a >>b;
+//   std::cout << "the sum of a and b is " << (float)a/b <<std::endl;
+//   // you can call a function from here that handles menu 4
+//   go_back_to_main();
+// }

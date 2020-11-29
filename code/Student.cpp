@@ -3,5 +3,124 @@
 //
 
 #include "Student.h"
+#include <regex>
+#include<iostream>
+using namespace std;
 
+void Student::operationMenu() {
+	int temp = 0;
+	cout << "Welcome " << this->name << "  using this system!" << endl;
+	cout << "\t\t ----------------------------------\n";
+	cout << "\t\t|                                  |\n";
+	cout << "\t\t|          1.Apply for using       |\n";
+	cout << "\t\t|                                  |\n";
+	cout << "\t\t|          2.Check my status       |\n";
+	cout << "\t\t|                                  |\n";
+	cout << "\t\t|          3.Cancel my order       |\n";
+	cout << "\t\t|                                  |\n";
+	cout << "\t\t|          0.Quit                  |\n";
+	cout << "\t\t|                                  |\n";
+	cout << "\t\t ----------------------------------\n";
+	cout << "Press number from 0-3 to continue : " << endl;
+}
+
+void Student::applyTheLab() {
+	cout << "The lab open for Monday to Friday. " << endl;
+	cout << "1. Monday" << endl;
+	cout << "2. Tuesday" << endl;
+	cout << "3. Wednesday" << endl;
+	cout << "4. Thursday" << endl;
+	cout << "5. Friday" << endl;
+	cout << "Press number 1-5 to choose your day." << endl;
+	int temp = get_user_input();
+	switch (temp) {
+	case 1:
+		this->date = "Monday";
+		cout << "You have successfuly book the lab on Monday! " << endl;
+		break;
+	case 2:
+		this->date = "Tuesday";
+		cout << "You have successfuly book the lab on Tuesday! " << endl;
+		break;
+	case 3:
+		this->date = "Wednesday";
+		cout << "You have successfuly book the lab on Wednesday! " << endl;
+		break;
+	case 4:
+		this->date = "Thursday";
+		cout << "You have successfuly book the lab on Thursday! " << endl;
+		break;
+	case 5:
+		this->date = "Friday";
+		cout << "You have successfuly book the lab on Friday! " << endl;
+		break;
+	default:
+		cout << "Please enter a resonable number from 1 to 5. " << endl;
+		operationMenu(); break;
+	}
+	cout << "Please choose a time slot£º" << endl;
+	cout << "1¡¢Morning" << endl;
+	cout << "2¡¢Afternoon" << endl;
+	cout << "Press number 1 or 2 to choose your slot." << endl;
+    temp = get_user_input();
+	switch (temp) {
+	case 1:
+		this->timeslot = "Morning";
+		cout << "You have successfuly book the lab in the morning! " << endl;
+		break;
+	case 2:
+		this->timeslot = "Afternoon";
+		cout << "You have successfuly book the lab in the afternoon! " << endl;
+		break;
+	default:
+		cout << "Please enter 1 or 2 to choose. " << endl;
+		operationMenu(); break;
+	}
+	cout << "Please wait for verification" << endl;
+	this->status = "Under review ";
+}
+
+void Student::checkStatus() {
+	cout << "Name: " << this->name << endl;
+	cout << "Date: " << this->date << " Timeslot: " << this->timeslot << endl;
+	cout << "Status: " << this->status << endl;
+}
+
+void Student::cancleOrder() {
+	this->status = "None";
+	cout << "You have successfully cancle an application " << endl;
+}
+
+int Student::get_user_input() {
+	int input;
+	std::string input_string;
+	bool valid_input = false;
+	int menu_items = 5;
+
+	do {
+		std::cout << "\nSelect item: ";
+		std::cin >> input_string;
+		valid_input = is_integer(input_string);
+		// if input is not an integer, print an error message
+		if (valid_input == false) {
+			std::cout << "Enter an integer!\n";
+		}
+		else {  // if it is an int, check whether in range
+			input = std::stoi(input_string);  // convert to int
+			if (input >= 1 && input <= menu_items) {
+				valid_input = true;
+			}
+			else {
+				std::cout << "Invalid menu item!\n";
+				valid_input = false;
+			}
+		}
+	} while (valid_input == false);
+
+	return input;
+}
+
+bool Student::is_integer(string num) {
+	return std::regex_match(num, std::regex("[+-]?[0-9]+"));
+}
 

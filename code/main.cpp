@@ -64,7 +64,7 @@ int get_user_input() {
             std::cout << "Enter an integer!\n";
         } else {  // if it is an int, check whether in range
             input = std::stoi(input_string);  // convert to int
-            if (input >= 1 && input <= menu_items) {
+            if (input >= 0 && input <= menu_items) {
                 valid_input = true;
             } else {
                 std::cout << "Invalid menu item!\n";
@@ -154,26 +154,27 @@ void menu_item_1() {
 }
  void menu_item_2() {
      while (1) {
-         Teacher t1("Tom", 111, "111");
-         t1.operationMenu();
+         t1->operationMenu();
          int select = get_user_input();
-         //switch (select) {
-         //case 0:
-         //    cout << "You have Logged out." << endl;
-         //    exit(1);
-         //    break;
-         //case 1:
-         //    t1.checkApplication();
-         //    break;
-         //case 2:
-         //    t1.permitApplication();
-         //    break;
-         //default:
-         //    cout << "You have Logged out." << endl;
-         //    exit(1);
-         //    break;
+         switch (select) {
+         case 0:
+             cout << "You have Logged out." << endl;
+             print_main_menu();
+             select_menu_item(get_user_input());
+             break;
+         case 1:
+             t1->checkApplication(record->Students);
+             break;
+         case 2:
+             t1->permitApplication(record->Students);
+             break;
+         default:
+             cout << "You have Logged out." << endl;
+             print_main_menu();
+             select_menu_item(get_user_input());
+             break;
 
-         //}
+         }
      }
 
 

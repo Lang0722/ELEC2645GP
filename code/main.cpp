@@ -40,9 +40,10 @@ int main(int argc, char const *argv[]) {
 Date *date = new Date();
 RecordStudent *record = new RecordStudent();
 Student *student = new Student("Lang", 123123, "123123",date);
+Teacher *t1;
 
 void main_menu() {
-    record->updateRecord("xx", 1, "pw",date);
+    record->updateRecord("Lang", 123123, "123123", date);
     print_main_menu();
     int input = get_user_input();
     select_menu_item(input);

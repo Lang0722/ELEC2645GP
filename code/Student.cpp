@@ -84,31 +84,31 @@ void Student::applyTheLab() {
 	    if (this->timeslot == "Morning")
 	        weekday->mon.morning = "Occupy";
 	    else
-            weekday->mon.morning = "Occupy";
+            weekday->mon.afternoon = "Occupy";
 	}
 	else if(this->date=="Tuesday"){
         if (this->timeslot == "Morning")
             weekday->tue.morning = "Occupy";
         else
-            weekday->tue.morning = "Occupy";
+            weekday->tue.afternoon = "Occupy";
 	}
     else if(this->date=="Wednesday"){
         if (this->timeslot == "Morning")
             weekday->wed.morning = "Occupy";
         else
-            weekday->wed.morning = "Occupy";
+            weekday->wed.afternoon = "Occupy";
     }
     else if(this->date=="Thursday"){
         if (this->timeslot == "Morning")
             weekday->thur.morning = "Occupy";
         else
-            weekday->thur.morning = "Occupy";
+            weekday->thur.afternoon = "Occupy";
     }
     else if(this->date=="Friday"){
         if (this->timeslot == "Morning")
             weekday->fri.morning = "Occupy";
         else
-            weekday->fri.morning = "Occupy";
+            weekday->fri.afternoon = "Occupy";
     }
 
 	cout << "Please wait for verification" << endl;

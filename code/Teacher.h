@@ -15,9 +15,9 @@ class Teacher : public person {
 public:
     Teacher(string name, int id, string password) : person(name, id, password) {};
 
-    void checkApplication(vector<Student> Students);
+    void checkApplication(vector<Student*> Students);
 
-    void permitApplication(vector<Student> Students);
+    void permitApplication(vector<Student*> Students);
 
     void operationMenu();
 

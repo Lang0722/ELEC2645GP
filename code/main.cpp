@@ -40,10 +40,14 @@ int main(int argc, char const *argv[]) {
 Date *date = new Date();
 RecordStudent *record = new RecordStudent();
 Student *student1 = new Student("Lang", 123123, "123123",date);
-Teacher *t1;
+Student* student2 = new Student("Haofan", 222, "bbb", date);
+Student* student3 = new Student("Guangchu", 333, "ccc", date);
+Teacher *t1 = new Teacher("Tom",444,"ddd");
 
 void main_menu() {
     record->updateRecord(student1);
+    record->updateRecord(student2);
+    record->updateRecord(student3);
     print_main_menu();
     int input = get_user_input();
     select_menu_item(input);
@@ -133,7 +137,8 @@ void menu_item_1() {
         switch (select) {
         case 0:
             cout << "You have Logged out." << endl;
-            exit(1);
+            print_main_menu();
+            select_menu_item(get_user_input());
             break;
         case 1:
             student->applyTheLab();
@@ -146,7 +151,8 @@ void menu_item_1() {
             break;
         default:
             cout << "You have Logged out." << endl;
-            exit(1);
+            print_main_menu();
+            select_menu_item(get_user_input());
             break;
         }goto Loop;
         

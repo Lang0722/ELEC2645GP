@@ -112,7 +112,7 @@ void Student::applyTheLab() {
     }
 
 	cout << "Please wait for verification" << endl;
-	this->status = "Under review ";
+	this->status = "Under review";
 }
 
 void Student::checkStatus() {

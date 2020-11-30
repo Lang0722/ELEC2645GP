@@ -39,11 +39,14 @@ int main(int argc, char const *argv[]) {
 
 Date *date = new Date();
 RecordStudent *record = new RecordStudent();
+
 Student *student = new Student("Lang", 123123, "123123",date);
-Teacher *t1;
+Teacher *t1 = new Teacher("Tom", 111, "aaa");
 
 void main_menu() {
-    record->updateRecord("Lang", 123123, "123123", date);
+    record->updateRecord("Lang", 111, "123123", date);
+    record->updateRecord("Haofan", 222, "123123", date);
+    record->updateRecord("Guangchu", 333, "123123", date);
     print_main_menu();
     int input = get_user_input();
     select_menu_item(input);
@@ -64,7 +67,7 @@ int get_user_input() {
             std::cout << "Enter an integer!\n";
         } else {  // if it is an int, check whether in range
             input = std::stoi(input_string);  // convert to int
-            if (input >= 1 && input <= menu_items) {
+            if (input >= 0 && input <= menu_items) {
                 valid_input = true;
             } else {
                 std::cout << "Invalid menu item!\n";
@@ -131,7 +134,8 @@ void menu_item_1() {
         switch (select) {
             case 0:
                 cout << "You have Logged out." << endl;
-                exit(1);
+                print_main_menu();
+                select_menu_item(get_user_input());
                 break;
             case 1:
                 student->applyTheLab();
@@ -144,7 +148,8 @@ void menu_item_1() {
                 break;
             default:
                 cout << "You have Logged out." << endl;
-                exit(1);
+                print_main_menu();
+                select_menu_item(get_user_input());
                 break;
 
         }
@@ -152,26 +157,27 @@ void menu_item_1() {
 }
  void menu_item_2() {
      while (1) {
-         Teacher t1("Tom", 111, "111");
-         t1.operationMenu();
+         t1->operationMenu();
          int select = get_user_input();
-         //switch (select) {
-         //case 0:
-         //    cout << "You have Logged out." << endl;
-         //    exit(1);
-         //    break;
-         //case 1:
-         //    t1.checkApplication();
-         //    break;
-         //case 2:
-         //    t1.permitApplication();
-         //    break;
-         //default:
-         //    cout << "You have Logged out." << endl;
-         //    exit(1);
-         //    break;
+         switch (select) {
+         case 0:
+             cout << "You have Logged out." << endl;
+             print_main_menu();
+             select_menu_item(get_user_input());
+             break;
+         case 1:
+             t1->checkApplication(record->Students);
+             break;
+         case 2:
+             t1->permitApplication(record->Students);
+             break;
+         default:
+             cout << "You have Logged out." << endl;
+             print_main_menu();
+             select_menu_item(get_user_input());
+             break;
 
-         //}
+         }
      }
 
 

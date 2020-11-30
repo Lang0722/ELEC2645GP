@@ -37,9 +37,10 @@ void Teacher::permitApplication(vector<Student> Students)
 					break;
 				}
 				else {
-					cout << "There is no student named temp" << endl;
+					cout << "There is no student named " << temp <<endl;
 					cout << "If you want to permit an application, please enter the name of applicant" << endl;
 					cout << "If you want to go back to last mene, please enter back" << endl;
+					break;
 				}
 			}
 		}

@@ -39,29 +39,29 @@ void Student::applyTheLab() {
 	switch (temp) {
 	case 1:
 		this->date = "Monday";
-		cout << "You have successfuly book the lab on Monday! " << endl;
+		cout << "You have successfully book the lab on Monday! " << endl;
 		break;
 	case 2:
 		this->date = "Tuesday";
-		cout << "You have successfuly book the lab on Tuesday! " << endl;
+		cout << "You have successfully book the lab on Tuesday! " << endl;
 		break;
 	case 3:
 		this->date = "Wednesday";
-		cout << "You have successfuly book the lab on Wednesday! " << endl;
+		cout << "You have successfully book the lab on Wednesday! " << endl;
 		break;
 	case 4:
 		this->date = "Thursday";
-		cout << "You have successfuly book the lab on Thursday! " << endl;
+		cout << "You have successfully book the lab on Thursday! " << endl;
 		break;
 	case 5:
 		this->date = "Friday";
-		cout << "You have successfuly book the lab on Friday! " << endl;
+		cout << "You have successfully book the lab on Friday! " << endl;
 		break;
 	default:
-		cout << "Please enter a resonable number from 1 to 5. " << endl;
+		cout << "Please enter a reasonable number from 1 to 5. " << endl;
 		operationMenu(); break;
 	}
-	cout << "Please choose a time slot£º" << endl;
+	cout << "Please choose a time slots" << endl;
 	cout << "1¡¢Morning" << endl;
 	cout << "2¡¢Afternoon" << endl;
 	cout << "Press number 1 or 2 to choose your slot." << endl;
@@ -69,11 +69,11 @@ void Student::applyTheLab() {
 	switch (temp) {
 	case 1:
 		this->timeslot = "Morning";
-		cout << "You have successfuly book the lab in the morning! " << endl;
+		cout << "You have successfully book the lab in the morning! " << endl;
 		break;
 	case 2:
 		this->timeslot = "Afternoon";
-		cout << "You have successfuly book the lab in the afternoon! " << endl;
+		cout << "You have successfully book the lab in the afternoon! " << endl;
 		break;
 	default:
 		cout << "Please enter 1 or 2 to choose. " << endl;
@@ -117,14 +117,14 @@ void Student::applyTheLab() {
 
 void Student::checkStatus() {
 	cout << "Name: " << this->name << endl;
-	cout << "Date: " << this->date << " Timeslot: " << this->timeslot << endl;
+	cout << "Date: " << this->date << " Time slot: " << this->timeslot << endl;
 	cout << "Status: " << this->status << endl;
 	weekday->printData();
 }
 
 void Student::cancelOrder() {
 	this->status = "None";
-	cout << "You have successfully cancle an application " << endl;
+	cout << "You have successfully cancel an application " << endl;
 }
 
 int Student::get_user_input() {

@@ -5,8 +5,8 @@
 #include"person.h"
 #include"RecordStudent.h"
 #include "Date.h"
-
 #include "Teacher.h"
+#include "Login_function.h"
 
 using namespace std;
 
@@ -39,11 +39,11 @@ int main(int argc, char const *argv[]) {
 
 Date *date = new Date();
 RecordStudent *record = new RecordStudent();
-Student *student = new Student("Lang", 123123, "123123",date);
+Student *student1 = new Student("Lang", 123123, "123123",date);
 Teacher *t1;
 
 void main_menu() {
-    record->updateRecord("Lang", 123123, "123123", date);
+    record->updateRecord(student1);
     print_main_menu();
     int input = get_user_input();
     select_menu_item(input);
@@ -79,7 +79,7 @@ int get_user_input() {
 void select_menu_item(int input) {
   switch (input) {
   case 1:
-      menu_item_1();
+      menu_item_1(); 
       break;
   case 2:
       menu_item_2();
@@ -124,30 +124,32 @@ bool is_integer(std::string num) {
 }
 
 void menu_item_1() {
-    while (1) {
-        student->operationMenu();
-        //*student = (record->Data.find(1)->second);
+    while (1) {   
+		Student* student = NULL;
+       
+        student = login(record);
+    Loop:student->operationMenu();
         int select = get_user_input();
         switch (select) {
-            case 0:
-                cout << "You have Logged out." << endl;
-                exit(1);
-                break;
-            case 1:
-                student->applyTheLab();
-                break;
-            case 2:
-                student->checkStatus();
-                break;
-            case 3:
-                student->cancelOrder();
-                break;
-            default:
-                cout << "You have Logged out." << endl;
-                exit(1);
-                break;
-
-        }
+        case 0:
+            cout << "You have Logged out." << endl;
+            exit(1);
+            break;
+        case 1:
+            student->applyTheLab();
+            break;
+        case 2:
+            student->checkStatus();
+            break;
+        case 3:
+            student->cancelOrder();
+            break;
+        default:
+            cout << "You have Logged out." << endl;
+            exit(1);
+            break;
+        }goto Loop;
+        
     }
 }
  void menu_item_2() {

@@ -5,20 +5,25 @@
 #include<vector>
 #include"Student.h"
 #include "Date.h"
+#include "Teacher.h"
 using namespace std;
 
 class RecordStudent
 {
 public:
-    RecordStudent();
+	RecordStudent();
 
-	void updateRecord(string name,int id,string pw, Date* weekday);
+
+	void updateRecord(Student* stu);
+	void updateRecord(Teacher* tea);
 
 	int size;
 
-	vector<Student> Students;
+	vector<Student*> Students;
+	vector<Teacher*> Teachers;
 
-	map<int,Student> Data;
+
+	/*map<int, Student> Data;*/
 
 };
 

@@ -5,6 +5,7 @@
 #include "Student.h"
 #include <regex>
 #include<iostream>
+#include "Date.h"
 using namespace std;
 
 void Student::operationMenu() {
@@ -25,6 +26,8 @@ void Student::operationMenu() {
 }
 
 void Student::applyTheLab() {
+    string flag; // which day
+
 	cout << "The lab open for Monday to Friday. " << endl;
 	cout << "1. Monday" << endl;
 	cout << "2. Tuesday" << endl;
@@ -76,6 +79,38 @@ void Student::applyTheLab() {
 		cout << "Please enter 1 or 2 to choose. " << endl;
 		operationMenu(); break;
 	}
+	// add the correspond data and time to the Data list
+	if(this->date=="Monday"){
+	    if (this->timeslot == "Morning")
+	        weekday->mon.morning = "Occupy";
+	    else
+            weekday->mon.morning = "Occupy";
+	}
+	else if(this->date=="Tuesday"){
+        if (this->timeslot == "Morning")
+            weekday->tue.morning = "Occupy";
+        else
+            weekday->tue.morning = "Occupy";
+	}
+    else if(this->date=="Wednesday"){
+        if (this->timeslot == "Morning")
+            weekday->wed.morning = "Occupy";
+        else
+            weekday->wed.morning = "Occupy";
+    }
+    else if(this->date=="Thursday"){
+        if (this->timeslot == "Morning")
+            weekday->thur.morning = "Occupy";
+        else
+            weekday->thur.morning = "Occupy";
+    }
+    else if(this->date=="Friday"){
+        if (this->timeslot == "Morning")
+            weekday->fri.morning = "Occupy";
+        else
+            weekday->fri.morning = "Occupy";
+    }
+
 	cout << "Please wait for verification" << endl;
 	this->status = "Under review ";
 }
@@ -84,9 +119,10 @@ void Student::checkStatus() {
 	cout << "Name: " << this->name << endl;
 	cout << "Date: " << this->date << " Timeslot: " << this->timeslot << endl;
 	cout << "Status: " << this->status << endl;
+	weekday->printData();
 }
 
-void Student::cancleOrder() {
+void Student::cancelOrder() {
 	this->status = "None";
 	cout << "You have successfully cancle an application " << endl;
 }

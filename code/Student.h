@@ -7,21 +7,25 @@
 
 #include "person.h"
 #include <string>
+#include "Date.h"
 
 using namespace std;
 
 
 class Student : public person {
 public:
-    Student(string name, int id, string password) : person(name, id, password) {
+    Student(string name, int id, string password, Date* weekday) : person(name, id, password) {
     	this->date = "None";
 		this->timeslot = "None";
 		this->status = "None";
+		this->weekday = weekday;
     };
 
     string status;
     string timeslot;
     string date;
+    Date* weekday;
+
 
     void operationMenu();
 
@@ -31,7 +35,7 @@ public:
 
     void checkStatus();
 
-    void cancleOrder();
+    void cancelOrder();
 
     int get_user_input();
     bool is_integer(std::string num);

@@ -1,5 +1,8 @@
 #pragma once
 #include "Student.h"
-#include "RecordStudent.h"
+#include "Record.h"
+#include "Teacher.h"
 
-Student* login(RecordStudent* students);
+Student* login_stu(Record* students);
+
+Teacher* login_tea(Record* teachers);

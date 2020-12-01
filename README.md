@@ -3,9 +3,11 @@ This is the feature/verson1 branch
 
 ## Note
 
-Adding Date class which can show the booking status of the whole week
+Add the login function
 
-Adding Admin Class
+Change the RecordStudent to Record
 
-set the student object to the Global variable
+Change the student and teacher's entry action
+
+Add the teacher record feature in Record
 

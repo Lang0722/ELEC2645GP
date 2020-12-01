@@ -9,19 +9,18 @@
 using namespace std;
 
 void Student::operationMenu() {
-	int temp = 0;
 	cout << "Welcome " << this->name << "  using this system!" << endl;
-	cout << "\t\t ----------------------------------\n";
-	cout << "\t\t|                                  |\n";
-	cout << "\t\t|          1.Apply for using       |\n";
-	cout << "\t\t|                                  |\n";
-	cout << "\t\t|          2.Check my status       |\n";
-	cout << "\t\t|                                  |\n";
-	cout << "\t\t|          3.Cancel my order       |\n";
-	cout << "\t\t|                                  |\n";
-	cout << "\t\t|          0.Quit                  |\n";
-	cout << "\t\t|                                  |\n";
-	cout << "\t\t ----------------------------------\n";
+	cout << " ----------------------------------\n";
+	cout << "|                                  |\n";
+	cout << "|          1.Apply for using       |\n";
+	cout << "|                                  |\n";
+	cout << "|          2.Check my status       |\n";
+	cout << "|                                  |\n";
+	cout << "|          3.Cancel my order       |\n";
+	cout << "|                                  |\n";
+	cout << "|          0.Quit                  |\n";
+	cout << "|                                  |\n";
+	cout << " ----------------------------------\n";
 	cout << "Press number from 0-3 to continue : " << endl;
 }
 

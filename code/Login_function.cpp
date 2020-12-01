@@ -18,15 +18,19 @@ Loop:cout << "Please enter your id: " << endl;
 	for (auto i : students->Students) {
 		if (m_id == i->id) {
 			m_id = m_id;
+			cout << "Hi user: " << i->name << " Welcome back!  Please enter your password: " << endl;
 			break;
 		}
+
 		if (i == students->Students.back()) {
+			cout << "There is no such user id in your group" << endl;
+			cout << "Please retry" << endl;
 			goto Loop;
 		}
 
 	}
 
-	cout << "Hi user: "<< m_id <<" Welcome back!  Please enter your password: " << endl;
+
 	cin >> m_password;
 
 	//check the password
@@ -35,12 +39,10 @@ Loop:cout << "Please enter your id: " << endl;
 			if (i->getPassword() == m_password) {
 				return i;
 			}
+
 			if (i == students->Students.back()) {
 				if (i->getPassword() == m_password)
-					return i;
-			}
-			else {
-				cout << "The password is wrong" << endl;  // use the try and catch in the main function
+					cout << "The password is wrong" << endl;  // use the try and catch in the main function
 				goto Loop;
 			}
 		}
@@ -61,18 +63,18 @@ Loop2:cout << "Please enter your id: " << endl;
 	for (auto i : teachers->Teachers) {
 		if (m_id == i->id) {
 			m_id = m_id;
+			cout << "Hi user: " << i->name << " Welcome back!  Please enter your password: " << endl;
 			break;
 		}
 		if (i == teachers->Teachers.back()) {
-			if (m_id == i->id) {
-				m_id = m_id;
-			}
-			else goto Loop2;
+			cout << "There is no such user id in your group" << endl;
+			cout << "Please retry" << endl;
+			goto Loop2;
 		}
 
 	}
 
-	cout << "Hi user: " << m_id << " Welcome back!  Please enter your password: " << endl;
+
 	cin >> m_password;
 
 	//check the password
@@ -81,11 +83,8 @@ Loop2:cout << "Please enter your id: " << endl;
 			if (i->getPassword() == m_password) {
 				return i;
 			}
+
 			if (i == teachers->Teachers.back()) {
-				if (i->getPassword() == m_password)
-					return i;
-			}
-			else {
 				cout << "The password is wrong" << endl;  // use the try and catch in the main function
 				goto Loop2;
 			}
@@ -106,18 +105,19 @@ Loop3:cout << "Please enter your id: " << endl;
 	for (auto i : admins->Admins) {
 		if (m_id == i->id) {
 			m_id = m_id;
+			cout << "Hi user: " << i->name << " Welcome back!  Please enter your password: " << endl;
 			break;
 		}
+
 		if (i == admins->Admins.back()) {
-			if (m_id == i->id) {
-				m_id = m_id;
-			}
-			else goto Loop3;
+			cout << "There is no such user id in your group" << endl;
+			cout << "Please retry" << endl;
+			goto Loop3;
 		}
 
 	}
 
-	cout << "Hi user: " << m_id << " Welcome back!  Please enter your password: " << endl;
+
 	cin >> m_password;
 
 	//check the password
@@ -126,11 +126,8 @@ Loop3:cout << "Please enter your id: " << endl;
 			if (i->getPassword() == m_password) {
 				return i;
 			}
+
 			if (i == admins->Admins.back()) {
-				if (i->getPassword() == m_password)
-					return i;
-			}
-			else {
 				cout << "The password is wrong" << endl;  // use the try and catch in the main function
 				goto Loop3;
 			}

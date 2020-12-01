@@ -8,7 +8,7 @@
 #include "Date.h"
 #include "Teacher.h"
 
-class Admin;
+class Admin;  //slove the double include problem
 
 class Record
 {

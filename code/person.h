@@ -2,8 +2,7 @@
 // Created by 96540 on 2020/11/24.
 //
 
-#ifndef ELEC2645_PERSON_H
-#define ELEC2645_PERSON_H
+#pragma once
 #include <string>
 
 using namespace std;
@@ -34,4 +33,3 @@ private:
 };
 
 
-#endif //ELEC2645_PERSON_H

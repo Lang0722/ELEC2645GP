@@ -21,10 +21,7 @@ Loop:cout << "Please enter your id: " << endl;
 			break;
 		}
 		if (i == students->Students.back()) {
-			if (m_id == i->id) {
-				m_id = m_id;
-			}
-			else goto Loop;
+			goto Loop;
 		}
 
 	}
@@ -96,3 +93,49 @@ Loop2:cout << "Please enter your id: " << endl;
 	}
 	return NULL;
 }
+
+Admin* login_admin(Record* admins) {
+
+	int m_id;
+	string m_password;
+
+Loop3:cout << "Please enter your id: " << endl;
+	cin >> m_id;
+
+	// check the id exist or not
+	for (auto i : admins->Admins) {
+		if (m_id == i->id) {
+			m_id = m_id;
+			break;
+		}
+		if (i == admins->Admins.back()) {
+			if (m_id == i->id) {
+				m_id = m_id;
+			}
+			else goto Loop3;
+		}
+
+	}
+
+	cout << "Hi user: " << m_id << " Welcome back!  Please enter your password: " << endl;
+	cin >> m_password;
+
+	//check the password
+	for (auto i : admins->Admins) {
+		if (i->id == m_id) {
+			if (i->getPassword() == m_password) {
+				return i;
+			}
+			if (i == admins->Admins.back()) {
+				if (i->getPassword() == m_password)
+					return i;
+			}
+			else {
+				cout << "The password is wrong" << endl;  // use the try and catch in the main function
+				goto Loop3;
+			}
+		}
+	}
+	return NULL;
+}
+

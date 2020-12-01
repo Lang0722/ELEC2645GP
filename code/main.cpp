@@ -1,12 +1,13 @@
 #include<iostream>
 #include<string>
 #include <regex>
-#include"Student.h"
-#include"person.h"
-#include"Record.h"
+#include "Student.h"
+#include "person.h"
 #include "Date.h"
 #include "Teacher.h"
 #include "Login_function.h"
+#include "Admin.h"
+#include "Record.h"
 
 using namespace std;
 
@@ -43,6 +44,7 @@ Student* student2 = new Student("Haofan", 222, "bbb", date);
 Student* student3 = new Student("Guangchu", 333, "ccc", date);
 Teacher* teacher1 = new Teacher("Tom", 444, "ddd");
 Teacher* teacher2 = new Teacher("crag", 555, "eee");
+Admin* admin1 = new Admin("admin", 123, "123");
 
 void main_menu() {
 
@@ -52,6 +54,7 @@ void main_menu() {
 	record->updateRecord(student3);
 	record->updateRecord(teacher1);
 	record->updateRecord(teacher2);  
+	record->updateRecord(admin1);
 
 	print_main_menu();
 	int input = get_user_input();
@@ -96,7 +99,7 @@ void select_menu_item(int input) {
 		menu_item_2();
 		break;
 	case 3:
-		//menu_item_3();
+		menu_item_3();
 		break;
 	case 4:
 		//menu_item_4();
@@ -113,7 +116,7 @@ void print_main_menu() {
 	std::cout << "|\t\t\t\t|\n";
 	std::cout << "|\t1. Student    \t\t|\n";
 	std::cout << "|\t2. Teacher\t\t|\n";
-	std::cout << "|\t3. Menu item 3\t\t|\n";
+	std::cout << "|\t3. Admin\t\t|\n";
 	std::cout << "|\t4. Menu item 4\t\t|\n";
 	std::cout << "|\t5. Exit\t\t\t|\n";
 	std::cout << "|\t\t\t\t|\n";
@@ -194,15 +197,39 @@ void menu_item_2() {
 
 
 }
-// void menu_item_3() {
-//   std::cout << "\n>> Menu 3\n";
-//   std::cout << "\nPlease enter 2 integer\n";
-//   int a,b;
-//   std::cin >>a >>b;
-//   std::cout << "the sum of a and b is " << a*b <<std::endl;
-//   // you can call a function from here that handles menu 3
-//   go_back_to_main();
-// }
+void menu_item_3() {
+	while (1) {
+		Admin* admin = NULL;  // creat a admin object
+
+		admin = login_admin(record);  // login function... return a admin object
+	Loop3:admin->operationMenu();
+		int select = get_user_input();
+		switch (select) {
+		case 0:
+			cout << "You have Logged out." << endl;
+			print_main_menu();
+			select_menu_item(get_user_input());
+			break;
+		case 1:
+			admin->checkApplication(record);
+			break;
+		case 2:
+			admin->permitApplication(record);
+			break;
+		case 3:
+			admin->cancelApplication(record);
+			break;
+		case 4:
+			admin->changeInfo(record);
+			break;
+		default:
+			cout << "You have Logged out." << endl;
+			print_main_menu();
+			select_menu_item(get_user_input());
+			break;
+		}goto Loop3;
+	}
+}
 // void menu_item_4() {
 //   std::cout << "\n>> Menu 4\n";
 //   std::cout << "\nPlease enter 2 integer\n";

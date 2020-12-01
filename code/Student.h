@@ -2,8 +2,7 @@
 // Created by 96540 on 2020/11/25.
 //
 
-#ifndef ELEC2645_STUDENT_H
-#define ELEC2645_STUDENT_H
+#pragma once
 
 #include "person.h"
 #include <string>
@@ -43,4 +42,4 @@ public:
 };
 
 
-#endif //ELEC2645_STUDENT_H
+

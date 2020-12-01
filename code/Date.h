@@ -2,8 +2,7 @@
 // Created by 96540 on 2020/11/29.
 //
 
-#ifndef ELEC2645GP_DATE_H
-#define ELEC2645GP_DATE_H
+#pragma once
 
 #include <string>
 #include <iostream>
@@ -33,4 +32,4 @@ public:
 };
 
 
-#endif //ELEC2645GP_DATE_H
+

@@ -38,23 +38,23 @@ void Student::applyTheLab() {
 	switch (temp) {
 	case 1:
 		this->date = "Monday";
-		cout << "You have successfully book the lab on Monday! " << endl;
+		cout << "You have successfully apply the lab on Monday! " << endl;
 		break;
 	case 2:
 		this->date = "Tuesday";
-		cout << "You have successfully book the lab on Tuesday! " << endl;
+		cout << "You have successfully apply the lab on Tuesday! " << endl;
 		break;
 	case 3:
 		this->date = "Wednesday";
-		cout << "You have successfully book the lab on Wednesday! " << endl;
+		cout << "You have successfully apply the lab on Wednesday! " << endl;
 		break;
 	case 4:
 		this->date = "Thursday";
-		cout << "You have successfully book the lab on Thursday! " << endl;
+		cout << "You have successfully apply the lab on Thursday! " << endl;
 		break;
 	case 5:
 		this->date = "Friday";
-		cout << "You have successfully book the lab on Friday! " << endl;
+		cout << "You have successfully apply the lab on Friday! " << endl;
 		break;
 	default:
 		cout << "Please enter a reasonable number from 1 to 5. " << endl;
@@ -79,36 +79,36 @@ void Student::applyTheLab() {
 		operationMenu(); break;
 	}
 	// add the correspond data and time to the Data list
-	if(this->date=="Monday"){
-	    if (this->timeslot == "Morning")
-	        weekday->mon.morning = "Occupy";
-	    else
-            weekday->mon.afternoon = "Occupy";
-	}
-	else if(this->date=="Tuesday"){
-        if (this->timeslot == "Morning")
-            weekday->tue.morning = "Occupy";
-        else
-            weekday->tue.afternoon = "Occupy";
-	}
-    else if(this->date=="Wednesday"){
-        if (this->timeslot == "Morning")
-            weekday->wed.morning = "Occupy";
-        else
-            weekday->wed.afternoon = "Occupy";
-    }
-    else if(this->date=="Thursday"){
-        if (this->timeslot == "Morning")
-            weekday->thur.morning = "Occupy";
-        else
-            weekday->thur.afternoon = "Occupy";
-    }
-    else if(this->date=="Friday"){
-        if (this->timeslot == "Morning")
-            weekday->fri.morning = "Occupy";
-        else
-            weekday->fri.afternoon = "Occupy";
-    }
+// 	if(this->date=="Monday"){
+// 	    if (this->timeslot == "Morning")
+// 	        weekday->mon.morning = "Occupy";
+// 	    else
+//             weekday->mon.afternoon = "Occupy";
+// 	}
+// 	else if(this->date=="Tuesday"){
+//         if (this->timeslot == "Morning")
+//             weekday->tue.morning = "Occupy";
+//         else
+//             weekday->tue.afternoon = "Occupy";
+// 	}
+//     else if(this->date=="Wednesday"){
+//         if (this->timeslot == "Morning")
+//             weekday->wed.morning = "Occupy";
+//         else
+//             weekday->wed.afternoon = "Occupy";
+//     }
+//     else if(this->date=="Thursday"){
+//         if (this->timeslot == "Morning")
+//             weekday->thur.morning = "Occupy";
+//         else
+//             weekday->thur.afternoon = "Occupy";
+//     }
+//     else if(this->date=="Friday"){
+//         if (this->timeslot == "Morning")
+//             weekday->fri.morning = "Occupy";
+//         else
+//             weekday->fri.afternoon = "Occupy";
+//     }
 
 	cout << "Please wait for verification" << endl;
 	this->status = "Under review";

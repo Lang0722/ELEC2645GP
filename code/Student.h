@@ -28,7 +28,7 @@ public:
 
     void operationMenu();
 
-    //void seeAvailable();
+    void seeAvailable();
 
     void applyTheLab();
 

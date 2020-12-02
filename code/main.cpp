@@ -117,8 +117,7 @@ void print_main_menu() {
 	std::cout << "|\t1. Student    \t\t|\n";
 	std::cout << "|\t2. Teacher\t\t|\n";
 	std::cout << "|\t3. Admin\t\t|\n";
-	std::cout << "|\t4. Menu item 4\t\t|\n";
-	std::cout << "|\t5. Exit\t\t\t|\n";
+	std::cout << "|\t4. Exit\t\t\t|\n";
 	std::cout << "|\t\t\t\t|\n";
 	std::cout << "---------------------------------\n";
 }
@@ -158,6 +157,9 @@ void menu_item_1() {
 			break;
 		case 3:
 			student->cancelOrder();
+			break;
+		case 4:
+			student->seeAvailable();
 			break;
 		default:
 			cout << "You have Logged out." << endl;

@@ -18,10 +18,17 @@ void Student::operationMenu() {
 	cout << "|                                  |\n";
 	cout << "|          3.Cancel my order       |\n";
 	cout << "|                                  |\n";
+	cout << "|          4.See available         |\n";
+	cout << "|                                  |\n";
 	cout << "|          0.Quit                  |\n";
 	cout << "|                                  |\n";
 	cout << " ----------------------------------\n";
 	cout << "Press number from 0-3 to continue : " << endl;
+}
+
+void Student::seeAvailable()
+{
+	this->weekday->printData();
 }
 
 void Student::applyTheLab() {
@@ -115,10 +122,11 @@ void Student::applyTheLab() {
 }
 
 void Student::checkStatus() {
+	cout << "------------------------" << endl;
 	cout << "Name: " << this->name << endl;
 	cout << "Date: " << this->date << " Time slot: " << this->timeslot << endl;
 	cout << "Status: " << this->status << endl;
-	weekday->printData();
+	cout << "------------------------" << endl;
 }
 
 void Student::cancelOrder() {

@@ -33,47 +33,55 @@ void Admin::permitApplication(Record* record)
 		if (i->name == name)
 		{
 			//set the student's status
-			i->status = "Verified";
-			cout << "-----------------------" << endl;
-			cout << "Application verified" << endl;
-			cout << "-----------------------" << endl;
-			// change the time slot
-			if (i->date == "Monday") {
-				if (i->timeslot == "Morning")
-					i->weekday->mon.morning = "Occupy";
-				else
-					i->weekday->mon.afternoon = "Occupy";
-			}
-			else if (i->date == "Tuesday") {
-				if (i->timeslot == "Morning")
-					i->weekday->tue.morning = "Occupy";
-				else
-					i->weekday->tue.afternoon = "Occupy";
-			}
-			else if (i->date == "Wednesday") {
-				if (i->timeslot == "Morning")
-					i->weekday->wed.morning = "Occupy";
-				else
-					i->weekday->wed.afternoon = "Occupy";
-			}
-			else if (i->date == "Thursday") {
-				if (i->timeslot == "Morning")
-					i->weekday->thur.morning = "Occupy";
-				else
-					i->weekday->thur.afternoon = "Occupy";
-			}
-			else if (i->date == "Friday") {
-				if (i->timeslot == "Morning")
-					i->weekday->fri.morning = "Occupy";
-				else
-					i->weekday->fri.afternoon = "Occupy";
-			}
-
-			cout << "If you want to permit another applications, please enter back to the Operation Menu" << endl;
-			cout << "-------------------------------------------------------------------------------------" << endl;
-			cin >> name;
-			if (name == "back")
+			if (i->status == "Under review")
 			{
+				i->status = "Verified";
+				cout << "-----------------------" << endl;
+				cout << "Application verified" << endl;
+				cout << "-----------------------" << endl;
+				// change the time slot
+				if (i->date == "Monday") {
+					if (i->timeslot == "Morning")
+						i->weekday->mon.morning = "Occupy";
+					else
+						i->weekday->mon.afternoon = "Occupy";
+				}
+				else if (i->date == "Tuesday") {
+					if (i->timeslot == "Morning")
+						i->weekday->tue.morning = "Occupy";
+					else
+						i->weekday->tue.afternoon = "Occupy";
+				}
+				else if (i->date == "Wednesday") {
+					if (i->timeslot == "Morning")
+						i->weekday->wed.morning = "Occupy";
+					else
+						i->weekday->wed.afternoon = "Occupy";
+				}
+				else if (i->date == "Thursday") {
+					if (i->timeslot == "Morning")
+						i->weekday->thur.morning = "Occupy";
+					else
+						i->weekday->thur.afternoon = "Occupy";
+				}
+				else if (i->date == "Friday") {
+					if (i->timeslot == "Morning")
+						i->weekday->fri.morning = "Occupy";
+					else
+						i->weekday->fri.afternoon = "Occupy";
+				}
+
+				cout << "If you want to permit another applications, please enter back to the Operation Menu" << endl;
+				cout << "-------------------------------------------------------------------------------------" << endl;
+				cin >> name;
+				if (name == "back")
+				{
+					break;
+				}
+			}
+			else
+			{
+				cout << "This student does not apply for the lab" << endl;
 				break;
 			}
 		}
@@ -113,49 +121,57 @@ void Admin::cancelApplication(Record* record)
 	for (auto i : record->Students)
 	{
 		if (i->name == name)
-		{
-			i->status = "None";// set student's status to the default
-
-			// set the lab's status to the available
-			if (i->date == "Monday") {
-				if (i->timeslot == "Morning")
-					i->weekday->mon.morning = "Available";
-				else
-					i->weekday->mon.afternoon = "Available";
-			}
-			else if (i->date == "Tuesday") {
-				if (i->timeslot == "Morning")
-					i->weekday->tue.morning = "Available";
-				else
-					i->weekday->tue.afternoon = "Available";
-			}
-			else if (i->date == "Wednesday") {
-				if (i->timeslot == "Morning")
-					i->weekday->wed.morning = "Available";
-				else
-					i->weekday->wed.afternoon = "Available";
-			}
-			else if (i->date == "Thursday") {
-				if (i->timeslot == "Morning")
-					i->weekday->thur.morning = "Available";
-				else
-					i->weekday->thur.afternoon = "Available";
-			}
-			else if (i->date == "Friday") {
-				if (i->timeslot == "Morning")
-					i->weekday->fri.morning = "Available";
-				else
-					i->weekday->fri.afternoon = "Available";
-			}
-
-			cout << "-----------------------" << endl;
-			cout << "Application canceled" << endl;
-			cout << "-----------------------" << endl;
-			cout << "If you want to cancel another applications, please enter back to the Operation Menu" << endl;
-			cout << "-------------------------------------------------------------------------------------" << endl;
-			cin >> name;
-			if (name == "back")
+		{	
+			if (i->status == "Verified")
 			{
+				i->status = "None";// set student's status to the default
+
+				// set the lab's status to the available
+				if (i->date == "Monday") {
+					if (i->timeslot == "Morning")
+						i->weekday->mon.morning = "Available";
+					else
+						i->weekday->mon.afternoon = "Available";
+				}
+				else if (i->date == "Tuesday") {
+					if (i->timeslot == "Morning")
+						i->weekday->tue.morning = "Available";
+					else
+						i->weekday->tue.afternoon = "Available";
+				}
+				else if (i->date == "Wednesday") {
+					if (i->timeslot == "Morning")
+						i->weekday->wed.morning = "Available";
+					else
+						i->weekday->wed.afternoon = "Available";
+				}
+				else if (i->date == "Thursday") {
+					if (i->timeslot == "Morning")
+						i->weekday->thur.morning = "Available";
+					else
+						i->weekday->thur.afternoon = "Available";
+				}
+				else if (i->date == "Friday") {
+					if (i->timeslot == "Morning")
+						i->weekday->fri.morning = "Available";
+					else
+						i->weekday->fri.afternoon = "Available";
+				}
+
+				cout << "-----------------------" << endl;
+				cout << "Application canceled" << endl;
+				cout << "-----------------------" << endl;
+				cout << "If you want to cancel another applications, please enter back to the Operation Menu" << endl;
+				cout << "-------------------------------------------------------------------------------------" << endl;
+				cin >> name;
+				if (name == "back")
+				{
+					break;
+				}
+			}
+			else
+			{
+				cout << "This student does not apply for the lab" << endl;
 				break;
 			}
 		}

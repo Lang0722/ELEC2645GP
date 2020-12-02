@@ -103,7 +103,7 @@ void select_menu_item(int input) {
 		break;
 	case 4:
 		//menu_item_4();
-		break;
+		exit(1);
 	default:
 		cout << "You have Logged out." << endl;
 		exit(1);

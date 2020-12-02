@@ -39,12 +39,12 @@ int main(int argc, char const* argv[]) {
 // init the student and teacher object
 Date* date = new Date();
 Record* record = new Record();
-Student* student1 = new Student("Lang", 123123, "123123", date);
+Student* student1 = new Student("Lang", 123123, "123123", date); // user: Lang; id: 123123, password: 123123 this is a Student
 Student* student2 = new Student("Haofan", 222, "bbb", date);
 Student* student3 = new Student("Guangchu", 333, "ccc", date);
 Teacher* teacher1 = new Teacher("Tom", 444, "ddd");
 Teacher* teacher2 = new Teacher("crag", 555, "eee");
-Admin* admin1 = new Admin("admin", 123, "123");
+Admin* admin1 = new Admin("admin", 123, "123");                  // admin: admin; id: 123 password: 123 this is the admin
 
 void main_menu() {
 

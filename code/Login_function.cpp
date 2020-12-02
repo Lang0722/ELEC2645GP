@@ -30,7 +30,6 @@ Loop:cout << "Please enter your id: " << endl;
 
 	}
 
-
 	cin >> m_password;
 
 	//check the password
@@ -39,10 +38,9 @@ Loop:cout << "Please enter your id: " << endl;
 			if (i->getPassword() == m_password) {
 				return i;
 			}
-
-			if (i == students->Students.back()) {
-				if (i->getPassword() == m_password)
-					cout << "The password is wrong" << endl;  // use the try and catch in the main function
+			else
+			{
+				cout << "The password is wrong" << endl;  // use the try and catch in the main function
 				goto Loop;
 			}
 		}
@@ -83,8 +81,8 @@ Loop2:cout << "Please enter your id: " << endl;
 			if (i->getPassword() == m_password) {
 				return i;
 			}
-
-			if (i == teachers->Teachers.back()) {
+			else
+			{
 				cout << "The password is wrong" << endl;  // use the try and catch in the main function
 				goto Loop2;
 			}
@@ -126,8 +124,8 @@ Loop3:cout << "Please enter your id: " << endl;
 			if (i->getPassword() == m_password) {
 				return i;
 			}
-
-			if (i == admins->Admins.back()) {
+			else
+			{
 				cout << "The password is wrong" << endl;  // use the try and catch in the main function
 				goto Loop3;
 			}

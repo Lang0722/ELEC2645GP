@@ -25,7 +25,7 @@ void Student::operationMenu() {
 }
 
 void Student::applyTheLab() {
-    string flag; // which day
+	string flag; // which day
 
 	cout << "The lab open for Monday to Friday. " << endl;
 	cout << "1. Monday" << endl;
@@ -38,23 +38,23 @@ void Student::applyTheLab() {
 	switch (temp) {
 	case 1:
 		this->date = "Monday";
-		cout << "You have successfully apply the lab on Monday! " << endl;
+		cout << "You have successfully book the lab on Monday! " << endl;
 		break;
 	case 2:
 		this->date = "Tuesday";
-		cout << "You have successfully apply the lab on Tuesday! " << endl;
+		cout << "You have successfully book the lab on Tuesday! " << endl;
 		break;
 	case 3:
 		this->date = "Wednesday";
-		cout << "You have successfully apply the lab on Wednesday! " << endl;
+		cout << "You have successfully book the lab on Wednesday! " << endl;
 		break;
 	case 4:
 		this->date = "Thursday";
-		cout << "You have successfully apply the lab on Thursday! " << endl;
+		cout << "You have successfully book the lab on Thursday! " << endl;
 		break;
 	case 5:
 		this->date = "Friday";
-		cout << "You have successfully apply the lab on Friday! " << endl;
+		cout << "You have successfully book the lab on Friday! " << endl;
 		break;
 	default:
 		cout << "Please enter a reasonable number from 1 to 5. " << endl;
@@ -63,8 +63,9 @@ void Student::applyTheLab() {
 	cout << "Please choose a time slots" << endl;
 	cout << "1、Morning" << endl;
 	cout << "2、Afternoon" << endl;
+	cout << "3、Back to the previous menu" << endl;
 	cout << "Press number 1 or 2 to choose your slot." << endl;
-    temp = get_user_input();
+	temp = get_user_input();
 	switch (temp) {
 	case 1:
 		this->timeslot = "Morning";
@@ -74,45 +75,78 @@ void Student::applyTheLab() {
 		this->timeslot = "Afternoon";
 		cout << "You have successfully book the lab in the afternoon! " << endl;
 		break;
+	case 3:
+		this->date = "None";
+		//operationMenu();
+		break;
 	default:
-		cout << "Please enter 1 or 2 to choose. " << endl;
-		operationMenu(); break;
+		cout << "Please enter 1、2 or 3 to choose. " << endl;
+		operationMenu(); 
+		break;
 	}
 	// add the correspond data and time to the Data list
-// 	if(this->date=="Monday"){
-// 	    if (this->timeslot == "Morning")
-// 	        weekday->mon.morning = "Occupy";
-// 	    else
-//             weekday->mon.afternoon = "Occupy";
-// 	}
-// 	else if(this->date=="Tuesday"){
-//         if (this->timeslot == "Morning")
-//             weekday->tue.morning = "Occupy";
-//         else
-//             weekday->tue.afternoon = "Occupy";
-// 	}
-//     else if(this->date=="Wednesday"){
-//         if (this->timeslot == "Morning")
-//             weekday->wed.morning = "Occupy";
-//         else
-//             weekday->wed.afternoon = "Occupy";
-//     }
-//     else if(this->date=="Thursday"){
-//         if (this->timeslot == "Morning")
-//             weekday->thur.morning = "Occupy";
-//         else
-//             weekday->thur.afternoon = "Occupy";
-//     }
-//     else if(this->date=="Friday"){
-//         if (this->timeslot == "Morning")
-//             weekday->fri.morning = "Occupy";
-//         else
-//             weekday->fri.afternoon = "Occupy";
-//     }
-
-	cout << "Please wait for verification" << endl;
-	this->status = "Under review";
+	if (this->date == "Monday") {
+		if (this->timeslot == "Morning") {
+			weekday->mon.morning = "Occupy   ";
+			cout << "Please wait for verification" << endl;
+			this->status = "Under review";
+		}
+		else {
+			weekday->mon.afternoon = "Occupy   ";
+			cout << "Please wait for verification" << endl;
+			this->status = "Under review";
+		}
+	}
+	else if (this->date == "Tuesday") {
+		if (this->timeslot == "Morning") {
+			weekday->tue.morning = "Occupy   ";
+			cout << "Please wait for verification" << endl;
+			this->status = "Under review";
+		}
+		else {
+			weekday->tue.afternoon = "Occupy   ";
+			cout << "Please wait for verification" << endl;
+			this->status = "Under review";
+		}
+	}
+	else if (this->date == "Wednesday") {
+		if (this->timeslot == "Morning") {
+			weekday->wed.morning = "Occupy   ";
+			cout << "Please wait for verification" << endl;
+			this->status = "Under review";
+		}
+		else {
+			weekday->wed.afternoon = "Occupy   ";
+			cout << "Please wait for verification" << endl;
+			this->status = "Under review";
+		}
+	}
+	else if (this->date == "Thursday") {
+		if (this->timeslot == "Morning") {
+			weekday->thur.morning = "Occupy   ";
+			cout << "Please wait for verification" << endl;
+			this->status = "Under review";
+		}
+		else {
+			weekday->thur.afternoon = "Occupy   ";
+			cout << "Please wait for verification" << endl;
+			this->status = "Under review";
+		}
+	}
+	else if (this->date == "Friday") {
+		if (this->timeslot == "Morning") {
+			weekday->fri.morning = "Occupy   ";
+			cout << "Please wait for verification" << endl;
+			this->status = "Under review";
+		}
+		else {
+			weekday->fri.afternoon = "Occupy   ";
+			cout << "Please wait for verification" << endl;
+			this->status = "Under review";
+		}
+	}
 }
+
 
 void Student::checkStatus() {
 	cout << "Name: " << this->name << endl;
@@ -123,6 +157,11 @@ void Student::checkStatus() {
 
 void Student::cancelOrder() {
 	this->status = "None";
+	weekday->mon = { "Monday","Available","Available" };
+	weekday->tue = { "Tuesday","Available","Available" };
+	weekday->wed = { "Wednesday","Available","Available" };
+	weekday->thur = { "Thursday","Available","Available" };
+	weekday->fri = { "Friday","Available","Available" };
 	cout << "You have successfully cancel an application " << endl;
 }
 

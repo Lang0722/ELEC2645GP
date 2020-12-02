@@ -14,10 +14,10 @@ using namespace std;
 class Student : public person {
 public:
     Student(string name, int id, string password, Date* weekday) : person(name, id, password) {
-    	this->date = "None";
-		this->timeslot = "None";
-		this->status = "None";
-		this->weekday = weekday;
+        this->date = "None";
+        this->timeslot = "None";
+        this->status = "None";
+        this->weekday = weekday;
     };
 
     string status;
@@ -40,6 +40,5 @@ public:
     bool is_integer(std::string num);
 
 };
-
 
 

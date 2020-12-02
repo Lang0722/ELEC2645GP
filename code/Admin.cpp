@@ -252,6 +252,75 @@ void Admin::changeInfo(Record* record)
 	
 }
 
+void Admin::addUser(Record* record)
+{
+	cout << "--------------------------------" << endl;
+	cout << "Please enter the new user's role" << endl;
+	cout << "--------------------------------" << endl;
+	cout << "1.---------Teacher--------------" << endl;
+	cout << "2.---------Student--------------" << endl;
+	cout << "Please enter the number" << endl;
+	int temp = get_user_input();
+	switch (temp) {
+	case 1:
+		this->addTeacher(record);
+		cout << "You have successfully add a Teacher! " << endl;
+		cout << "-------------------------------------" << endl;
+		break;
+	case 2:
+		this->addStudent(record);
+		cout << "You have successfully add a Student! " << endl;
+		cout << "-------------------------------------" << endl;
+		break;
+	default:
+		cout << "Please enter a reasonable number from 1 to 5. " << endl;
+		operationMenu(); break;
+	}
+
+}
+
+void Admin::addStudent(Record* record)
+{
+	string name;
+	string password;
+	int id;
+	Date* weekday;
+	
+	cout << "-------------------------------------" << endl;
+	cout << "Please enter the new student's name:" << endl;
+	cin >> name;
+	cout << "-------------------------------------" << endl;
+	cout << "Please enter the new student's id:" << endl;
+	cin >> id;
+	cout << "-------------------------------------" << endl;
+	cout << "Please enter the new student's password:" << endl;
+	cin >> password;
+	cout << "-------------------------------------" << endl;
+	weekday = record->Students.at(0)->weekday;
+	Student* newStudent = new Student(name, id, password , weekday);
+	record->Students.push_back(newStudent);
+}
+
+void Admin::addTeacher(Record* record)
+{
+	string name;
+	string password;
+	int id;
+
+	cout << "-------------------------------------" << endl;
+	cout << "Please enter the new teacher's name:" << endl;
+	cin >> name;
+	cout << "-------------------------------------" << endl;
+	cout << "Please enter the new teacher's id:" << endl;
+	cin >> id;
+	cout << "-------------------------------------" << endl;
+	cout << "Please enter the new teacher's password:" << endl;
+	cin >> password;
+	cout << "-------------------------------------" << endl;
+	Teacher* newTeacher = new Teacher(name, id, password);
+	record->Teachers.push_back(newTeacher);
+}
+
 
 void Admin::operationMenu()
 {
@@ -292,4 +361,40 @@ void Admin::showAlluser(Record* record)
 		cout << i->id << "\t\t" << i->name << "\t\t" << i->getPassword() << endl;
 	}
 	cout << "------------------------------------------" << endl;
+}
+
+int Admin::get_user_input()
+{
+	int input;
+	std::string input_string;
+	bool valid_input = false;
+	int menu_items = 5;
+
+	do {
+		std::cout << "\nSelect item: ";
+		std::cin >> input_string;
+		valid_input = is_integer(input_string);
+		// if input is not an integer, print an error message
+		if (valid_input == false) {
+			std::cout << "Enter an integer!\n";
+		}
+		else {  // if it is an int, check whether in range
+			input = std::stoi(input_string);  // convert to int
+			if (input >= 1 && input <= menu_items) {
+				valid_input = true;
+			}
+			else {
+				std::cout << "Invalid menu item!\n";
+				valid_input = false;
+			}
+		}
+	} while (valid_input == false);
+
+	return input;
+}
+
+bool Admin::is_integer(std::string num)
+{
+	return std::regex_match(num, std::regex("[+-]?[0-9]+"));
+	return false;
 }

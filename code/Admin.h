@@ -9,8 +9,10 @@
 
 #include "Student.h"
 #include "Teacher.h"
+#include "Date.h"
 #include<iostream>
 #include<vector> 
+#include <regex>
 
 class Admin : public person {
 public:
@@ -24,10 +26,17 @@ public:
 
 	void changeInfo(Record* record);
 
-	//void addStudent(Record* record);
+	void addUser(Record* record);
+
+	void addStudent(Record* record);
+
+	void addTeacher(Record* record);
 
 	void operationMenu();
 
 	void showAlluser(Record* record);
+
+	int get_user_input();
+	bool is_integer(std::string num);
 };
 

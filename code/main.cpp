@@ -222,6 +222,9 @@ void menu_item_3() {
 		case 4:
 			admin->changeInfo(record);
 			break;
+		case 5:
+			admin->addUser(record);
+			break;
 		default:
 			cout << "You have Logged out." << endl;
 			print_main_menu();

@@ -8,4 +8,4 @@ Student* login_stu(Record* students);
 
 Teacher* login_tea(Record* teachers);
 
-Admin* login_admin(Record* teachers);
+Admin* login_admin(Record* admins);

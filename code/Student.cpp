@@ -78,11 +78,11 @@ void Student::applyTheLab() {
 	}
 	cout << " ----Please choose a time slots------------------- " << endl;
 	cout << "|                                                  |\n";
-	cout << "|         1��Morning                               |" << endl;
+	cout << "|         1.Morning                               |" << endl;
 	cout << "|                                                  |\n";
-	cout << "|         2��Afternoon                             |" << endl;
+	cout << "|         2.Afternoon                             |" << endl;
 	cout << "|                                                  |\n";
-	cout << "|         0��Back to previous menu                 |\n";
+	cout << "|         0.Back to previous menu                 |\n";
 	cout << "|                                                  |\n";
 	cout << " ----Press number 1 or 2 to choose your slot.----- " << endl;
 	temp = get_user_input();

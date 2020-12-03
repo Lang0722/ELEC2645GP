@@ -85,13 +85,20 @@ void Teacher::permitApplication(vector<Student*> Students)
 					}
 				}
 				else {
+					if (i != (int)Students.size()-1)
+					{
+						continue;
+					}
+					else{
 					cout << "There is no student named " << temp << endl;
 					cout << "----------------------------------------------------------------------------------" << endl;
 					cout << "If you want to permit an application, please enter the name of applicant" << endl;
 					cout << "If you want to go back to last menu, please enter back" << endl;
 					cout << "----------------------------------------------------------------------------------" << endl;
 					break;
+						}
 				}
+
 
 			}
 

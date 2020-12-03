@@ -31,10 +31,13 @@ void Teacher::permitApplication(vector<Student*> Students)
 		if (temp == "back") {
 			break;
 		}
-		else {
+		else 
+		{
 
-			for (int i = 0; i < (int)Students.size(); i++) {
-				if (Students[i]->name == temp) {
+			for (int i = 0; i < (int)Students.size(); i++)
+			{
+				if (Students[i]->name == temp) 
+				{
 					if (Students[i]->status == "Under review")
 					{
 						Students[i]->status = "Verified";
@@ -84,16 +87,26 @@ void Teacher::permitApplication(vector<Student*> Students)
 						break;
 					}
 				}
-				else {
-					cout << "There is no student named " << temp << endl;
-					cout << "----------------------------------------------------------------------------------" << endl;
-					cout << "If you want to permit an application, please enter the name of applicant" << endl;
-					cout << "If you want to go back to last menu, please enter back" << endl;
-					cout << "----------------------------------------------------------------------------------" << endl;
-					break;
-				}
 
+				else 
+				{
+					if (i != (int)Students.size() - 1) 
+					{
+						continue;
+					}
+					else
+					{
+						cout << "There is no student named " << temp << endl;
+						cout << "----------------------------------------------------------------------------------" << endl;
+						cout << "If you want to permit an application, please enter the name of applicant" << endl;
+						cout << "If you want to go back to last menu, please enter back" << endl;
+						cout << "----------------------------------------------------------------------------------" << endl;
+						break;
+					}
+				}
 			}
+
+			
 
 
 

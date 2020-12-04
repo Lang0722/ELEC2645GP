@@ -5,6 +5,17 @@
 Record::Record() {
 	size = 0;
 }
+inline Record::~Record()
+{
+	for (auto i : Students)
+		delete i;
+	for (auto i : Teachers)
+		delete i;
+	for (auto i : Admins)
+		delete i;
+	delete a;
+
+}
 void Record::updateRecord(Student* stu)
 {
 	Students.push_back(stu);

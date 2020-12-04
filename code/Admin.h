@@ -6,7 +6,6 @@
 
 #include "Record.h"
 #include "person.h"
-
 #include "Student.h"
 #include "Teacher.h"
 #include "Date.h"
@@ -18,6 +17,7 @@ class Admin : public person {
 public:
 	Admin(string name, int id, string password) : person(name, id, password) {};
 
+
 	void checkApplication(Record* record);
 
 	void permitApplication(Record* record);
@@ -28,9 +28,15 @@ public:
 
 	void addUser(Record* record);
 
+	void deleteUser(Record* record);
+
 	void addStudent(Record* record);
 
 	void addTeacher(Record* record);
+
+	void deleteStudent(Record* record);
+
+	void deleteTeacher(Record* record);
 
 	void operationMenu();
 

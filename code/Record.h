@@ -14,17 +14,7 @@ class Record
 {
 public:
 	Record();
-	~Record()
-	{
-		for (auto i : Students)
-			delete i;
-		for (auto i : Teachers)
-			delete i;
-		for (auto i : Admins)
-			delete i;
-		delete a;
-
-	}
+	~Record();
 	Admin* a;
 
 	void updateRecord(Student* stu);  // add the student object to the vector
@@ -36,9 +26,6 @@ public:
 	vector<Student*> Students;  // store the student object
 	vector<Teacher*> Teachers;  // store the teacher object
 	vector<Admin*> Admins;
-
-
-	/*map<int, Student> Data;*/
 
 };
 

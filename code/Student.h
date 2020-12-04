@@ -19,6 +19,10 @@ public:
 		this->status = "None";
 		this->weekday = weekday;
     };
+    ~Student()
+    {
+        delete weekday;
+    }
 
     string status;
     string timeslot;

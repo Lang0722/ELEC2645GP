@@ -14,8 +14,19 @@ class Record
 {
 public:
 	Record();
+	~Record()
+	{
+		for (auto i : Students)
+			delete i;
+		for (auto i : Teachers)
+			delete i;
+		for (auto i : Admins)
+			delete i;
+		delete a;
 
+	}
 	Admin* a;
+
 	void updateRecord(Student* stu);  // add the student object to the vector
 	void updateRecord(Teacher* tea);  // add the teacher object to the vector
 	void updateRecord(Admin* adm);

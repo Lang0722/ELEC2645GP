@@ -31,45 +31,45 @@ void Teacher::permitApplication(vector<Student*> Students)
 		if (temp == "back") {
 			break;
 		}
-		else 
+		else
 		{
 
 			for (int i = 0; i < (int)Students.size(); i++)
 			{
-				if (Students[i]->name == temp) 
+				if (Students[i]->name == temp)
 				{
 					if (Students[i]->status == "Under review")
 					{
 						Students[i]->status = "Verified";
 						if (Students[i]->date == "Monday") {
 							if (Students[i]->timeslot == "Morning")
-								Students[i]->weekday->mon.morning = "Occupy";
+								Students[i]->weekday->mon.morning = "Occupy   ";
 							else
-								Students[i]->weekday->mon.afternoon = "Occupy";
+								Students[i]->weekday->mon.afternoon = "Occupy   ";
 						}
 						else if (Students[i]->date == "Tuesday") {
 							if (Students[i]->timeslot == "Morning")
-								Students[i]->weekday->tue.morning = "Occupy";
+								Students[i]->weekday->tue.morning = "Occupy   ";
 							else
-								Students[i]->weekday->tue.afternoon = "Occupy";
+								Students[i]->weekday->tue.afternoon = "Occupy   ";
 						}
 						else if (Students[i]->date == "Wednesday") {
 							if (Students[i]->timeslot == "Morning")
-								Students[i]->weekday->wed.morning = "Occupy";
+								Students[i]->weekday->wed.morning = "Occupy   ";
 							else
-								Students[i]->weekday->wed.afternoon = "Occupy";
+								Students[i]->weekday->wed.afternoon = "Occupy   ";
 						}
 						else if (Students[i]->date == "Thursday") {
 							if (Students[i]->timeslot == "Morning")
-								Students[i]->weekday->thur.morning = "Occupy";
+								Students[i]->weekday->thur.morning = "Occupy   ";
 							else
-								Students[i]->weekday->thur.afternoon = "Occupy";
+								Students[i]->weekday->thur.afternoon = "Occupy   ";
 						}
 						else if (Students[i]->date == "Friday") {
 							if (Students[i]->timeslot == "Morning")
-								Students[i]->weekday->fri.morning = "Occupy";
+								Students[i]->weekday->fri.morning = "Occupy   ";
 							else
-								Students[i]->weekday->fri.afternoon = "Occupy";
+								Students[i]->weekday->fri.afternoon = "Occupy   ";
 						}
 						cout << "Application verified" << endl;
 						cout << "----------------------------------------------------------------------------------" << endl;
@@ -88,9 +88,9 @@ void Teacher::permitApplication(vector<Student*> Students)
 					}
 				}
 
-				else 
+				else
 				{
-					if (i != (int)Students.size() - 1) 
+					if (i != (int)Students.size() - 1)
 					{
 						continue;
 					}
@@ -106,7 +106,7 @@ void Teacher::permitApplication(vector<Student*> Students)
 				}
 			}
 
-			
+
 
 
 

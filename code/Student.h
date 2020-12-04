@@ -7,9 +7,14 @@
 #include "person.h"
 #include <string>
 #include "Date.h"
+#include<map>
 
 using namespace std;
 
+struct Application {
+    string date;
+    string slot;
+};
 
 class Student : public person {
 public:
@@ -18,13 +23,20 @@ public:
 		this->timeslot = "None";
 		this->status = "None";
 		this->weekday = weekday;
+        this->myApplication = { "None","None" };
     };
 
     string status;
     string timeslot;
     string date;
+    Application myApplication;
     Date* weekday;
 
+    void applySlotsMon();
+    void applySlotsTue();
+    void applySlotsWed();
+    void applySlotsThu();
+    void applySlotsFri();
 
     void operationMenu();
 

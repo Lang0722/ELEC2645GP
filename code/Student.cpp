@@ -32,7 +32,7 @@ void Student::seeAvailable()
 }
 
 void Student::applyTheLab() {
-	string flag; // which day
+	//string flag; // which day
 	cout << " ---The lab open for Monday to Friday.--- " << endl;
 	cout << "|                                        |\n";
 	cout << "|         1. Monday                      |" << endl;
@@ -51,24 +51,19 @@ void Student::applyTheLab() {
 	int temp = get_user_input();
 	switch (temp) {
 	case 1:
-		this->date = "Monday";
-		cout << "You have successfully apply the lab on Monday! " << endl;
+		applySlotsMon();
 		break;
 	case 2:
-		this->date = "Tuesday";
-		cout << "You have successfully apply the lab on Tuesday! " << endl;
+		applySlotsTue();
 		break;
 	case 3:
-		this->date = "Wednesday";
-		cout << "You have successfully apply the lab on Wednesday! " << endl;
+		applySlotsWed();
 		break;
 	case 4:
-		this->date = "Thursday";
-		cout << "You have successfully apply the lab on Thursday! " << endl;
+		applySlotsThu();
 		break;
 	case 5:
-		this->date = "Friday";
-		cout << "You have successfully apply the lab on Friday! " << endl;
+		applySlotsFri();
 		break;
 	case 0:
 		return;
@@ -76,38 +71,7 @@ void Student::applyTheLab() {
 		cout << "Please enter a reasonable number from 1 to 5. " << endl;
 		return;
 	}
-	cout << " ----Please choose a time slots------------------- " << endl;
-	cout << "|                                                  |\n";
-	cout << "|         1. Morning                               |" << endl;
-	cout << "|                                                  |\n";
-	cout << "|         2. Afternoon                             |" << endl;
-	cout << "|                                                  |\n";
-	cout << "|         0. Back to previous menu                 |\n";
-	cout << "|                                                  |\n";
-	cout << " ----Press number 1 or 2 to choose your slot.----- " << endl;
-	temp = get_user_input();
-	switch (temp) {
-	case 1:
-		this->timeslot = "Morning";
-		cout << "You have successfully book the lab in the morning! " << endl;
-		break;
-	case 2:
-		this->timeslot = "Afternoon";
-		cout << "You have successfully book the lab in the afternoon! " << endl;
-		break;
-	case 0:
-		return;
-	default:
-		cout << "Please enter 1 or 2 to choose. " << endl;
-		return;
-	}
-
-
-	cout << "Please wait for verification" << endl;
-	this->status = "Under review";
 }
-
-
 void Student::checkStatus() {
 	cout << "------------------------" << endl;
 	cout << "Name: " << this->name << endl;
@@ -120,6 +84,36 @@ void Student::cancelOrder() {
 	this->status = "None";
 	this->date = "None";
 	this->timeslot = "None";
+	if (myApplication.date == "Monday") {
+		if (myApplication.slot == "Morning")
+			this->weekday->mon.morning = "Available";
+		else
+			this->weekday->mon.afternoon = "Available";
+	}
+	else if (myApplication.date == "Tuesday") {
+		if (myApplication.slot == "Morning")
+			this->weekday->tue.morning = "Available";
+		else
+			this->weekday->tue.afternoon = "Available";
+	}
+	else if (myApplication.date == "Wednesday") {
+		if (myApplication.slot == "Morning")
+			this->weekday->wed.morning = "Available";
+		else
+			this->weekday->wed.afternoon = "Available";
+	}
+	else if (myApplication.date == "Thursday") {
+		if (myApplication.slot == "Morning")
+			this->weekday->thur.morning = "Available";
+		else
+			this->weekday->thur.afternoon = "Available";
+	}
+	else if (myApplication.date == "Friday") {
+		if (myApplication.slot == "Morning")
+			this->weekday->fri.morning = "Available";
+		else
+			this->weekday->fri.afternoon = "Available";
+	}
 	cout << "You have successfully cancel an application " << endl;
 }
 
@@ -139,7 +133,7 @@ int Student::get_user_input() {
 		}
 		else {  // if it is an int, check whether in range
 			input = std::stoi(input_string);  // convert to int
-			if (input >= 1 && input <= menu_items) {
+			if (input >= 0 && input <= menu_items) {
 				valid_input = true;
 			}
 			else {
@@ -155,4 +149,251 @@ int Student::get_user_input() {
 bool Student::is_integer(string num) {
 	return std::regex_match(num, std::regex("[+-]?[0-9]+"));
 }
+
+void Student::applySlotsMon() {
+	cout << " ----Please choose a time slots------------------- " << endl;
+	cout << "|                                                  |\n";
+	cout << "|         1.Morning                               |" << endl;
+	cout << "|                                                  |\n";
+	cout << "|         2.Afternoon                             |" << endl;
+	cout << "|                                                  |\n";
+	cout << "|         0.Back to previous menu                 |\n";
+	cout << "|                                                  |\n";
+	cout << " ----Press number 1 or 2 to choose your slot.----- " << endl;
+	int temp;
+	temp = get_user_input();
+	switch (temp) {
+	case 1:
+		if (this->weekday->mon.morning != "Occupy   ") {
+			this->date = "Monday";
+			this->timeslot = "Morning";
+			cout << "You have successfully book the lab in the morning! " << endl;
+			cout << "Please wait for verification" << endl;
+			this->status = "Under review";
+			this->myApplication = { "Monday","Morning" };
+		}
+		else {
+			cout << "This time slot was occupied, please choose another." << endl;
+			return;
+		}
+		break;
+	case 2:
+		if (this->weekday->mon.afternoon != "Occupy   ") {
+			this->date = "Monday";
+			this->timeslot = "Afternoon";
+			cout << "You have successfully book the lab in the afternoon! " << endl;
+			cout << "Please wait for verification" << endl;
+			this->status = "Under review";
+			this->myApplication = { "Monday","Afternoon" };
+		}
+		else {
+			cout << "This time slot was occupied, please choose another." << endl;
+			return;
+		}
+		break;
+	case 0:
+		return;
+	default:
+		cout << "Please enter 1 or 2 to choose. " << endl;
+		return;
+	}
+}
+
+void Student::applySlotsTue() {
+	cout << " ----Please choose a time slots------------------- " << endl;
+	cout << "|                                                  |\n";
+	cout << "|         1.Morning                               |" << endl;
+	cout << "|                                                  |\n";
+	cout << "|         2.Afternoon                             |" << endl;
+	cout << "|                                                  |\n";
+	cout << "|         0.Back to previous menu                 |\n";
+	cout << "|                                                  |\n";
+	cout << " ----Press number 1 or 2 to choose your slot.----- " << endl;
+	int temp;
+	temp = get_user_input();
+	switch (temp) {
+	case 1:
+		if (this->weekday->tue.morning != "Occupy   ") {
+			this->date = "Tuesday";
+			this->timeslot = "Morning";
+			cout << "You have successfully book the lab in the morning! " << endl;
+			cout << "Please wait for verification" << endl;
+			this->status = "Under review";
+			this->myApplication = { "Tuesday","Morning" };
+		}
+		else {
+			cout << "This time slot was occupied, please choose another." << endl;
+			return;
+		}
+		break;
+	case 2:
+		if (this->weekday->tue.afternoon != "Occupy   ") {
+			this->date = "Tuesday";
+			this->timeslot = "Afternoon";
+			cout << "You have successfully book the lab in the afternoon! " << endl;
+			cout << "Please wait for verification" << endl;
+			this->status = "Under review";
+			this->myApplication = { "Tuesday","Afternoon" };
+		}
+		else {
+			cout << "This time slot was occupied, please choose another." << endl;
+			return;
+		}
+		break;
+	case 0:
+		return;
+	default:
+		cout << "Please enter 1 or 2 to choose. " << endl;
+		return;
+	}
+}
+void Student::applySlotsWed() {
+	cout << " ----Please choose a time slots------------------- " << endl;
+	cout << "|                                                  |\n";
+	cout << "|         1.Morning                               |" << endl;
+	cout << "|                                                  |\n";
+	cout << "|         2.Afternoon                             |" << endl;
+	cout << "|                                                  |\n";
+	cout << "|         0.Back to previous menu                 |\n";
+	cout << "|                                                  |\n";
+	cout << " ----Press number 1 or 2 to choose your slot.----- " << endl;
+	int temp;
+	temp = get_user_input();
+	switch (temp) {
+	case 1:
+		if (this->weekday->wed.morning != "Occupy   ") {
+			this->date = "Wednesday";
+			this->timeslot = "Morning";
+			cout << "You have successfully book the lab in the morning! " << endl;
+			cout << "Please wait for verification" << endl;
+			this->status = "Under review";
+			this->myApplication = { "Wednesday","Morning" };
+		}
+		else {
+			cout << "This time slot was occupied, please choose another." << endl;
+			return;
+		}
+		break;
+	case 2:
+		if (this->weekday->mon.afternoon != "Occupy   ") {
+			this->date = "Wednesday";
+			this->timeslot = "Afternoon";
+			cout << "You have successfully book the lab in the afternoon! " << endl;
+			cout << "Please wait for verification" << endl;
+			this->status = "Under review";
+			this->myApplication = { "Wednesday","Afternoon" };
+		}
+		else {
+			cout << "This time slot was occupied, please choose another." << endl;
+			return;
+		}
+		break;
+	case 0:
+		return;
+	default:
+		cout << "Please enter 1 or 2 to choose. " << endl;
+		return;
+	}
+}
+
+void Student::applySlotsThu() {
+	cout << " ----Please choose a time slots------------------- " << endl;
+	cout << "|                                                  |\n";
+	cout << "|         1.Morning                               |" << endl;
+	cout << "|                                                  |\n";
+	cout << "|         2.Afternoon                             |" << endl;
+	cout << "|                                                  |\n";
+	cout << "|         0.Back to previous menu                 |\n";
+	cout << "|                                                  |\n";
+	cout << " ----Press number 1 or 2 to choose your slot.----- " << endl;
+	int temp;
+	temp = get_user_input();
+	switch (temp) {
+	case 1:
+		if (this->weekday->thur.morning != "Occupy   ") {
+			this->date = "Thursday";
+			this->timeslot = "Morning";
+			cout << "You have successfully book the lab in the morning! " << endl;
+			cout << "Please wait for verification" << endl;
+			this->status = "Under review";
+			this->myApplication = { "Thursday","Morning" };
+		}
+		else {
+			cout << "This time slot was occupied, please choose another." << endl;
+			return;
+		}
+		break;
+	case 2:
+		if (this->weekday->thur.afternoon != "Occupy   ") {
+			this->date = "Thursday";
+			this->timeslot = "Afternoon";
+			cout << "You have successfully book the lab in the afternoon! " << endl;
+			cout << "Please wait for verification" << endl;
+			this->status = "Under review";
+			this->myApplication = { "Thursday","Afternoon" };
+		}
+		else {
+			cout << "This time slot was occupied, please choose another." << endl;
+			return;
+		}
+		break;
+	case 0:
+		return;
+	default:
+		cout << "Please enter 1 or 2 to choose. " << endl;
+		this->date = "None";
+		return;
+	}
+}
+
+void Student::applySlotsFri() {
+	cout << " ----Please choose a time slots------------------- " << endl;
+	cout << "|                                                  |\n";
+	cout << "|         1.Morning                               |" << endl;
+	cout << "|                                                  |\n";
+	cout << "|         2.Afternoon                             |" << endl;
+	cout << "|                                                  |\n";
+	cout << "|         0.Back to previous menu                 |\n";
+	cout << "|                                                  |\n";
+	cout << " ----Press number 1 or 2 to choose your slot.----- " << endl;
+	int temp;
+	temp = get_user_input();
+	switch (temp) {
+	case 1:
+		if (this->weekday->fri.morning != "Occupy   ") {
+			this->date = "Friday";
+			this->timeslot = "Morning";
+			cout << "You have successfully book the lab in the morning! " << endl;
+			cout << "Please wait for verification" << endl;
+			this->status = "Under review";
+			this->myApplication = { "Friday","Morning" };
+		}
+		else {
+			cout << "This time slot was occupied, please choose another." << endl;
+			return;
+		}
+		break;
+	case 2:
+		if (this->weekday->fri.afternoon != "Occupy   ") {
+			this->date = "Friday";
+			this->timeslot = "Afternoon";
+			cout << "You have successfully book the lab in the afternoon! " << endl;
+			cout << "Please wait for verification" << endl;
+			this->status = "Under review";
+			this->myApplication = { "Friday","Afternoon" };
+		}
+		else {
+			cout << "This time slot was occupied, please choose another." << endl;
+			return;
+		}
+		break;
+	case 0:
+		return;
+	default:
+		cout << "Please enter 1 or 2 to choose. " << endl;
+		return;
+	}
+}
+
+
 

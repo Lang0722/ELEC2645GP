@@ -12,7 +12,7 @@ void Admin::checkApplication(Record* record)
 {
 	cout << "Name\t" << "Date\t" << "Time slot\t" << endl;
 	cout << "------------------------------------------------------------------------" << endl;
-	for(auto i : record->Students )
+	for (auto i : record->Students)
 		if (i->status == "Under review") {
 			cout << i->name << "\t" << i->date << "\t" << i->timeslot << "\t" << endl;
 		}
@@ -95,7 +95,7 @@ void Admin::permitApplication(Record* record)
 			if (name == "back")
 			{
 				break;
-			}			
+			}
 		}
 	}
 }
@@ -104,14 +104,14 @@ void Admin::cancelApplication(Record* record)
 {
 	string name;
 
-    //show the booked student
+	//show the booked student
 	cout << "Name\t" << "Date\t" << "Time slot\t" << endl;
 	cout << "------------------------------------------------------------------------" << endl;
 	for (auto i : record->Students)
 		if (i->status == "Verified") {
 			cout << i->name << "\t" << i->date << "\t" << i->timeslot << "\t" << endl;
 		}
-	cout << "------------------------------------------------------------------------" << endl; 
+	cout << "------------------------------------------------------------------------" << endl;
 
 	cout << "------------------------------------------------------------------------" << endl;
 	cout << "If you want to cancel an application, please enter the name of applicant" << endl;
@@ -121,7 +121,7 @@ void Admin::cancelApplication(Record* record)
 	for (auto i : record->Students)
 	{
 		if (i->name == name)
-		{	
+		{
 			if (i->status == "Verified")
 			{
 				i->status = "None";// set student's status to the default
@@ -188,7 +188,7 @@ void Admin::cancelApplication(Record* record)
 			}
 		}
 	}
-	
+
 }
 
 void Admin::changeInfo(Record* record)
@@ -237,7 +237,7 @@ void Admin::changeInfo(Record* record)
 				cin >> password;
 				i->changPassword(password);
 				cout << "----------------------------" << endl;
-				cout << "You have changed "<< name<< "'s password" << endl;
+				cout << "You have changed " << name << "'s password" << endl;
 				cout << "----------------------------" << endl;
 				cout << "If you want to change someone else, please enter back to the Operation Menu" << endl;
 				cout << "-------------------------------------------------------------------------------------" << endl;
@@ -265,7 +265,7 @@ void Admin::changeInfo(Record* record)
 
 
 
-	
+
 }
 
 void Admin::addUser(Record* record)
@@ -301,7 +301,7 @@ void Admin::addStudent(Record* record)
 	string password;
 	int id;
 	Date* weekday;
-	
+
 	cout << "-------------------------------------" << endl;
 	cout << "Please enter the new student's name:" << endl;
 	cin >> name;
@@ -313,7 +313,7 @@ void Admin::addStudent(Record* record)
 	cin >> password;
 	cout << "-------------------------------------" << endl;
 	weekday = record->Students.at(0)->weekday;
-	Student* newStudent = new Student(name, id, password , weekday);
+	Student* newStudent = new Student(name, id, password, weekday);
 	record->Students.push_back(newStudent);
 }
 
@@ -366,7 +366,7 @@ void Admin::showAlluser(Record* record)
 	cout << "------------------------------------------" << endl;
 	for (auto i : record->Students)
 	{
-		cout << i->id << "\t\t"<< i->name << "\t\t" << i->getPassword() <<endl;
+		cout << i->id << "\t\t" << i->name << "\t\t" << i->getPassword() << endl;
 	}
 	cout << "------------------------------------------" << endl;
 	cout << "Teacher" << endl;

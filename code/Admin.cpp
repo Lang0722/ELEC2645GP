@@ -48,75 +48,76 @@ void Admin::permitApplication(Record* record)
 				cout << "-----------------------" << endl;
 				// change the time slot
 				if (i->date == "Monday") {
-
-					if (i->timeslot == "Morning")
-					{
-						i->weekday->mon.morning = "Occupy";
-					}
-					else
-					{
-						i->weekday->mon.afternoon = "Occupy";
-					}
-
 					if (i->computer == "Computer1")
 						i->weekday->mon.computer1 = "Occupy";
 					else if (i->computer == "Computer2")
 						i->weekday->mon.computer2 = "Occupy";
 					else if (i->computer == "Computer3")
 						i->weekday->mon.computer3 = "Occupy";
+					else if (i->computer == "Computer4")
+						i->weekday->mon.computer4 = "Occupy";
+					else if (i->computer == "Computer5")
+						i->weekday->mon.computer5 = "Occupy";
+					else if (i->computer == "Computer6")
+						i->weekday->mon.computer6 = "Occupy";
+					
 						
 				}
 				else if (i->date == "Tuesday") {
-					if (i->timeslot == "Morning")
-						i->weekday->tue.morning = "Occupy";
-					else
-						i->weekday->tue.afternoon = "Occupy";
-
 					if (i->computer == "Computer1")
 						i->weekday->tue.computer1 = "Occupy";
 					else if (i->computer == "Computer2")
 						i->weekday->tue.computer2 = "Occupy";
 					else if (i->computer == "Computer3")
 						i->weekday->tue.computer3 = "Occupy";
+					else if (i->computer == "Computer4")
+						i->weekday->tue.computer4 = "Occupy";
+					else if (i->computer == "Computer5")
+						i->weekday->tue.computer5 = "Occupy";
+					else if (i->computer == "Computer6")
+						i->weekday->tue.computer6 = "Occupy";
 				}
 				else if (i->date == "Wednesday") {
-					if (i->timeslot == "Morning")
-						i->weekday->wed.morning = "Occupy";
-					else
-						i->weekday->wed.afternoon = "Occupy";
-
 					if (i->computer == "Computer1")
 						i->weekday->wed.computer1 = "Occupy";
 					else if (i->computer == "Computer2")
 						i->weekday->wed.computer2 = "Occupy";
 					else if (i->computer == "Computer3")
 						i->weekday->wed.computer3 = "Occupy";
+					else if (i->computer == "Computer4")
+						i->weekday->wed.computer4 = "Occupy";
+					else if (i->computer == "Computer5")
+						i->weekday->wed.computer5 = "Occupy";
+					else if (i->computer == "Computer6")
+						i->weekday->wed.computer6 = "Occupy";
 				}
 				else if (i->date == "Thursday") {
-					if (i->timeslot == "Morning")
-						i->weekday->thur.morning = "Occupy";
-					else
-						i->weekday->thur.afternoon = "Occupy";
-
 					if (i->computer == "Computer1")
 						i->weekday->thur.computer1 = "Occupy";
 					else if (i->computer == "Computer2")
 						i->weekday->thur.computer2 = "Occupy";
 					else if (i->computer == "Computer3")
 						i->weekday->thur.computer3 = "Occupy";
+					else if (i->computer == "Computer4")
+						i->weekday->thur.computer4 = "Occupy";
+					else if (i->computer == "Computer5")
+						i->weekday->thur.computer5 = "Occupy";
+					else if (i->computer == "Computer6")
+						i->weekday->thur.computer6 = "Occupy";
 				}
 				else if (i->date == "Friday") {
-					if (i->timeslot == "Morning")
-						i->weekday->fri.morning = "Occupy";
-					else
-						i->weekday->fri.afternoon = "Occupy";
-
 					if (i->computer == "Computer1")
 						i->weekday->fri.computer1 = "Occupy";
 					else if (i->computer == "Computer2")
 						i->weekday->fri.computer2 = "Occupy";
 					else if (i->computer == "Computer3")
 						i->weekday->fri.computer3 = "Occupy";
+					else if (i->computer == "Computer4")
+						i->weekday->fri.computer4 = "Occupy";
+					else if (i->computer == "Computer5")
+						i->weekday->fri.computer5 = "Occupy";
+					else if (i->computer == "Computer6")
+						i->weekday->fri.computer6 = "Occupy";
 				}
 
 				cout << "If you want to permit another applications, please enter back to the Operation Menu" << endl;

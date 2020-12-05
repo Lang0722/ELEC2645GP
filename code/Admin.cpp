@@ -186,69 +186,74 @@ void Admin::cancelApplication(Record* record)
 
 				// set the lab's status to the available
 				if (i->date == "Monday") {
-					if (i->timeslot == "Morning")
-						i->weekday->mon.morning = "Available";
-					else
-						i->weekday->mon.afternoon = "Available";
-
 					if (i->computer == "Computer1")
 						i->weekday->mon.computer1 = "Available";
 					else if (i->computer == "Computer2")
 						i->weekday->mon.computer2 = "Available";
 					else if (i->computer == "Computer3")
 						i->weekday->mon.computer3 = "Available";
+					else if (i->computer == "Computer4")
+						i->weekday->mon.computer4 = "Available";
+					else if (i->computer == "Computer5")
+						i->weekday->mon.computer5 = "Available";
+					else if (i->computer == "Computer6")
+						i->weekday->mon.computer6 = "Available";
 				}
 				else if (i->date == "Tuesday") {
-					if (i->timeslot == "Morning")
-						i->weekday->tue.morning = "Available";
-					else
-						i->weekday->tue.afternoon = "Available";
-
 					if (i->computer == "Computer1")
 						i->weekday->tue.computer1 = "Available";
 					else if (i->computer == "Computer2")
 						i->weekday->tue.computer2 = "Available";
 					else if (i->computer == "Computer3")
 						i->weekday->tue.computer3 = "Available";
+					else if (i->computer == "Computer4")
+						i->weekday->tue.computer4 = "Available";
+					else if (i->computer == "Computer5")
+						i->weekday->tue.computer5 = "Available";
+					else if (i->computer == "Computer6")
+						i->weekday->tue.computer6 = "Available";
 				}
 				else if (i->date == "Wednesday") {
-					if (i->timeslot == "Morning")
-						i->weekday->wed.morning = "Available";
-					else
-						i->weekday->wed.afternoon = "Available";
-
 					if (i->computer == "Computer1")
 						i->weekday->wed.computer1 = "Available";
 					else if (i->computer == "Computer2")
 						i->weekday->wed.computer2 = "Available";
 					else if (i->computer == "Computer3")
 						i->weekday->wed.computer3 = "Available";
+					else if (i->computer == "Computer4")
+						i->weekday->wed.computer4 = "Available";
+					else if (i->computer == "Computer5")
+						i->weekday->wed.computer5 = "Available";
+					else if (i->computer == "Computer6")
+						i->weekday->wed.computer6 = "Available";
 				}
 				else if (i->date == "Thursday") {
-					if (i->timeslot == "Morning")
-						i->weekday->thur.morning = "Available";
-					else
-						i->weekday->thur.afternoon = "Available";
-
 					if (i->computer == "Computer1")
 						i->weekday->thur.computer1 = "Available";
 					else if (i->computer == "Computer2")
 						i->weekday->thur.computer2 = "Available";
 					else if (i->computer == "Computer3")
 						i->weekday->thur.computer3 = "Available";
+					else if (i->computer == "Computer4")
+						i->weekday->thur.computer4 = "Available";
+					else if (i->computer == "Computer5")
+						i->weekday->thur.computer5 = "Available";
+					else if (i->computer == "Computer6")
+						i->weekday->thur.computer6 = "Available";
 				}
 				else if (i->date == "Friday") {
-					if (i->timeslot == "Morning")
-						i->weekday->fri.morning = "Available";
-					else
-						i->weekday->fri.afternoon = "Available";
-
 					if (i->computer == "Computer1")
 						i->weekday->fri.computer1 = "Available";
 					else if (i->computer == "Computer2")
 						i->weekday->fri.computer2 = "Available";
 					else if (i->computer == "Computer3")
 						i->weekday->fri.computer3 = "Available";
+					else if (i->computer == "Computer4")
+						i->weekday->fri.computer4 = "Available";
+					else if (i->computer == "Computer5")
+						i->weekday->fri.computer5 = "Available";
+					else if (i->computer == "Computer6")
+						i->weekday->fri.computer6 = "Available";
 				}
 
 				cout << "-----------------------" << endl;

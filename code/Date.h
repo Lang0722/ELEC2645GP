@@ -15,6 +15,9 @@ struct WeekDay
     string day;
     string morning;
     string afternoon;
+    string computer1 = "Available";
+    string computer2 = "Available";
+    string computer3 = "Available";
 };
 
 

@@ -10,11 +10,11 @@ using namespace std;
 // show the students who are applying
 void Admin::checkApplication(Record* record)
 {
-	cout << "Name\t" << "Date\t" << "Time slot\t" << endl;
+	cout << "Name\t" << "Date\t" << "Time slot\t" << "Computer\t" << endl;
 	cout << "------------------------------------------------------------------------" << endl;
 	for(auto i : record->Students )
 		if (i->status == "Under review") {
-			cout << i->name << "\t" << i->date << "\t" << i->timeslot << "\t" << endl;
+			cout << i->name << "\t" << i->date << "\t" << i->timeslot << "\t" << i->computer << "\t" << endl;
 		}
 	cout << "------------------------------------------------------------------------" << endl;
 }
@@ -48,34 +48,75 @@ void Admin::permitApplication(Record* record)
 				cout << "-----------------------" << endl;
 				// change the time slot
 				if (i->date == "Monday") {
+
 					if (i->timeslot == "Morning")
+					{
 						i->weekday->mon.morning = "Occupy";
+					}
 					else
+					{
 						i->weekday->mon.afternoon = "Occupy";
+					}
+
+					if (i->computer == "Computer1")
+						i->weekday->mon.computer1 = "Occupy";
+					else if (i->computer == "Computer2")
+						i->weekday->mon.computer2 = "Occupy";
+					else if (i->computer == "Computer3")
+						i->weekday->mon.computer3 = "Occupy";
+						
 				}
 				else if (i->date == "Tuesday") {
 					if (i->timeslot == "Morning")
 						i->weekday->tue.morning = "Occupy";
 					else
 						i->weekday->tue.afternoon = "Occupy";
+
+					if (i->computer == "Computer1")
+						i->weekday->tue.computer1 = "Occupy";
+					else if (i->computer == "Computer2")
+						i->weekday->tue.computer2 = "Occupy";
+					else if (i->computer == "Computer3")
+						i->weekday->tue.computer3 = "Occupy";
 				}
 				else if (i->date == "Wednesday") {
 					if (i->timeslot == "Morning")
 						i->weekday->wed.morning = "Occupy";
 					else
 						i->weekday->wed.afternoon = "Occupy";
+
+					if (i->computer == "Computer1")
+						i->weekday->wed.computer1 = "Occupy";
+					else if (i->computer == "Computer2")
+						i->weekday->wed.computer2 = "Occupy";
+					else if (i->computer == "Computer3")
+						i->weekday->wed.computer3 = "Occupy";
 				}
 				else if (i->date == "Thursday") {
 					if (i->timeslot == "Morning")
 						i->weekday->thur.morning = "Occupy";
 					else
 						i->weekday->thur.afternoon = "Occupy";
+
+					if (i->computer == "Computer1")
+						i->weekday->thur.computer1 = "Occupy";
+					else if (i->computer == "Computer2")
+						i->weekday->thur.computer2 = "Occupy";
+					else if (i->computer == "Computer3")
+						i->weekday->thur.computer3 = "Occupy";
 				}
 				else if (i->date == "Friday") {
 					if (i->timeslot == "Morning")
 						i->weekday->fri.morning = "Occupy";
 					else
 						i->weekday->fri.afternoon = "Occupy";
+
+					if (i->computer == "Computer1")
+						i->weekday->fri.computer1 = "Occupy";
+					else if (i->computer == "Computer2")
+						i->weekday->fri.computer2 = "Occupy";
+					else if (i->computer == "Computer3")
+						i->weekday->fri.computer3 = "Occupy";
 				}
 
 				cout << "If you want to permit another applications, please enter back to the Operation Menu" << endl;
@@ -112,11 +153,11 @@ void Admin::cancelApplication(Record* record)
 	string name;
 
     //show the booked student
-	cout << "Name\t" << "Date\t" << "Time slot\t" << endl;
+	cout << "Name\t" << "Date\t" << "Time slot\t" << "Computer\t" << endl;
 	cout << "------------------------------------------------------------------------" << endl;
 	for (auto i : record->Students)
 		if (i->status == "Verified") {
-			cout << i->name << "\t" << i->date << "\t" << i->timeslot << "\t" << endl;
+			cout << i->name << "\t" << i->date << "\t" << i->timeslot << "\t" << i->computer << "\t" << endl;
 		}
 	cout << "------------------------------------------------------------------------" << endl; 
 
@@ -138,6 +179,9 @@ void Admin::cancelApplication(Record* record)
 			if (i->status == "Verified")
 			{
 				i->status = "None";// set student's status to the default
+				i->timeslot = "None";
+				i->computer = "None";
+				i->date = "None";
 
 				// set the lab's status to the available
 				if (i->date == "Monday") {
@@ -145,30 +189,65 @@ void Admin::cancelApplication(Record* record)
 						i->weekday->mon.morning = "Available";
 					else
 						i->weekday->mon.afternoon = "Available";
+
+					if (i->computer == "Computer1")
+						i->weekday->mon.computer1 = "Available";
+					else if (i->computer == "Computer2")
+						i->weekday->mon.computer2 = "Available";
+					else if (i->computer == "Computer3")
+						i->weekday->mon.computer3 = "Available";
 				}
 				else if (i->date == "Tuesday") {
 					if (i->timeslot == "Morning")
 						i->weekday->tue.morning = "Available";
 					else
 						i->weekday->tue.afternoon = "Available";
+
+					if (i->computer == "Computer1")
+						i->weekday->tue.computer1 = "Available";
+					else if (i->computer == "Computer2")
+						i->weekday->tue.computer2 = "Available";
+					else if (i->computer == "Computer3")
+						i->weekday->tue.computer3 = "Available";
 				}
 				else if (i->date == "Wednesday") {
 					if (i->timeslot == "Morning")
 						i->weekday->wed.morning = "Available";
 					else
 						i->weekday->wed.afternoon = "Available";
+
+					if (i->computer == "Computer1")
+						i->weekday->wed.computer1 = "Available";
+					else if (i->computer == "Computer2")
+						i->weekday->wed.computer2 = "Available";
+					else if (i->computer == "Computer3")
+						i->weekday->wed.computer3 = "Available";
 				}
 				else if (i->date == "Thursday") {
 					if (i->timeslot == "Morning")
 						i->weekday->thur.morning = "Available";
 					else
 						i->weekday->thur.afternoon = "Available";
+
+					if (i->computer == "Computer1")
+						i->weekday->thur.computer1 = "Available";
+					else if (i->computer == "Computer2")
+						i->weekday->thur.computer2 = "Available";
+					else if (i->computer == "Computer3")
+						i->weekday->thur.computer3 = "Available";
 				}
 				else if (i->date == "Friday") {
 					if (i->timeslot == "Morning")
 						i->weekday->fri.morning = "Available";
 					else
 						i->weekday->fri.afternoon = "Available";
+
+					if (i->computer == "Computer1")
+						i->weekday->fri.computer1 = "Available";
+					else if (i->computer == "Computer2")
+						i->weekday->fri.computer2 = "Available";
+					else if (i->computer == "Computer3")
+						i->weekday->fri.computer3 = "Available";
 				}
 
 				cout << "-----------------------" << endl;

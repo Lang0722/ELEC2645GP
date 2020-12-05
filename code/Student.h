@@ -17,6 +17,7 @@ public:
     	this->date = "None";
 		this->timeslot = "None";
 		this->status = "None";
+        this->computer = "None";
 		this->weekday = weekday;
     };
     ~Student()
@@ -27,6 +28,7 @@ public:
     string status;
     string timeslot;
     string date;
+    string computer;
     Date* weekday;
 
 

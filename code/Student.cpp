@@ -18,7 +18,7 @@ void Student::operationMenu() {
 	cout << "|                                  |\n";
 	cout << "|          3.Cancel my order       |\n";
 	cout << "|                                  |\n";
-	cout << "|          4.See available         |\n";
+	cout << "|          4.See available labs    |\n";
 	cout << "|                                  |\n";
 	cout << "|          0.Quit                  |\n";
 	cout << "|                                  |\n";
@@ -32,7 +32,8 @@ void Student::seeAvailable()
 }
 
 void Student::applyTheLab() {
-	string flag; // which day
+	bool flag = false;  // whether book successfully
+	WeekDay selectDay;
 	cout << " ---The lab open for Monday to Friday.--- " << endl;
 	cout << "|                                        |\n";
 	cout << "|         1. Monday                      |" << endl;
@@ -52,23 +53,28 @@ void Student::applyTheLab() {
 	switch (temp) {
 	case 1:
 		this->date = "Monday";
-		cout << "You have successfully apply the lab on Monday! " << endl;
+		selectDay = weekday->mon;
+		cout << "Please select the time slots you want to book! " << endl;
 		break;
 	case 2:
 		this->date = "Tuesday";
-		cout << "You have successfully apply the lab on Tuesday! " << endl;
+		selectDay = weekday->tue;
+		cout << "Please select the time slots you want to book! " << endl;
 		break;
 	case 3:
 		this->date = "Wednesday";
-		cout << "You have successfully apply the lab on Wednesday! " << endl;
+		selectDay = weekday->wed;
+		cout << "Please select the time slots you want to book! " << endl;
 		break;
 	case 4:
 		this->date = "Thursday";
-		cout << "You have successfully apply the lab on Thursday! " << endl;
+		selectDay = weekday->thur;
+		cout << "Please select the time slots you want to book! " << endl;
 		break;
 	case 5:
 		this->date = "Friday";
-		cout << "You have successfully apply the lab on Friday! " << endl;
+		selectDay = weekday->fri;
+		cout << "Please select the time slots you want to book! " << endl;
 		break;
 	case 0:
 		return;
@@ -89,11 +95,11 @@ void Student::applyTheLab() {
 	switch (temp) {
 	case 1:
 		this->timeslot = "Morning";
-		cout << "You have successfully book the lab in the morning! " << endl;
+		cout << "Please choose the computers " << endl;
 		break;
 	case 2:
 		this->timeslot = "Afternoon";
-		cout << "You have successfully book the lab in the afternoon! " << endl;
+		cout << "Please choose the computers " << endl;
 		break;
 	case 0:
 		return;
@@ -102,9 +108,79 @@ void Student::applyTheLab() {
 		return;
 	}
 
+	cout << " ----Please choose a computer------------------- " << endl;
+	cout << "|                                                  |\n";
+	cout << "|         1.Computer 1                             |" << endl;
+	cout << "|                                                  |\n";
+	cout << "|         2.Computer 2                             |" << endl;
+	cout << "|                                                  |\n";
+	cout << "|         3.Computer 3                             |\n";
+	cout << "|                                                  |\n";
+	cout << "|         0.back                                   |\n";
+	cout << "|                                                  |\n";
+	cout << " ----Press number 1 or 2 to choose your slot.----- " << endl;
+	temp = get_user_input();
+	switch (temp) {
+	case 1:
+		if (selectDay.computer1 == "Available")
+		{
+			flag = true;
+			this->computer = "Computer1";
+			cout << "You have successfully applied this computer" << endl;
+			break;
+		}
+		else
+		{
+			this->date = "None";
+			this->timeslot = "None";
+			cout << "This computer has already booked by other student" << endl;
+			break;
+		}
+	case 2:
+		if (selectDay.computer2 == "Available")
+		{
+			flag = true;
+			this->computer = "Computer2";
+			cout << "You have successfully applied this computer" << endl;
+			break;
+		}
+		else
+		{
+			this->date = "None";
+			this->timeslot = "None";
+			cout << "This computer has already booked by other student" << endl;
+			cout << "Please check the available list" << endl;
+			break;
+		}
+	case 3:
+		if (selectDay.computer3 == "Available")
+		{
+			flag = true;
+			this->computer = "Computer3";
+			cout << "You have successfully applied this computer" << endl;
+			break;
+		}
+		else
+		{
+			this->date = "None";
+			this->timeslot = "None";
+			cout << "This computer has already booked by other student" << endl;
+			cout << "Please check the available list" << endl;
+			break;
+		}
+	case 0:
+		return;
+	default:
+		cout << "Please enter 1 to 3 to choose. " << endl;
+		return;
+	}
 
-	cout << "Please wait for verification" << endl;
-	this->status = "Under review";
+	if (flag)
+	{
+		cout << "Please wait for verification" << endl;
+		this->status = "Under review";
+	}
+	
 }
 
 

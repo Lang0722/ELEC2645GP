@@ -10,11 +10,11 @@ using namespace std;
 // show the students who are applying
 void Admin::checkApplication(Record* record)
 {
-	cout << "Name\t" << "Date\t" << "Time slot\t" << endl;
+	cout << "Name\t" << "Date\t" << "Time slot\t" << "Computer\t" << endl;
 	cout << "------------------------------------------------------------------------" << endl;
 	for(auto i : record->Students )
 		if (i->status == "Under review") {
-			cout << i->name << "\t" << i->date << "\t" << i->timeslot << "\t" << endl;
+			cout << i->name << "\t" << i->date << "\t" << i->timeslot << "\t" << i->computer << "\t" << endl;
 		}
 	cout << "------------------------------------------------------------------------" << endl;
 }
@@ -25,11 +25,18 @@ void Admin::permitApplication(Record* record)
 	cout << "------------------------------------------------------------------------" << endl;
 	cout << "If you want to permit an application, please enter the name of applicant" << endl;
 	cout << "------------------------------------------------------------------------" << endl;
+	cout << "Or enter back to the Admin's main menu" << endl;
+	cout << "------------------------------------------------------------------------" << endl;
 	cin >> name;
 
+	
 	// find the input in the Students vector
 	for (auto i : record->Students)
 	{
+		if (name == "back")
+		{
+			break;
+		}
 		if (i->name == name)
 		{
 			//set the student's status
@@ -41,34 +48,76 @@ void Admin::permitApplication(Record* record)
 				cout << "-----------------------" << endl;
 				// change the time slot
 				if (i->date == "Monday") {
-					if (i->timeslot == "Morning")
-						i->weekday->mon.morning = "Occupy";
-					else
-						i->weekday->mon.afternoon = "Occupy";
+					if (i->computer == "Computer1")
+						i->weekday->mon.computer1 = "Occupy";
+					else if (i->computer == "Computer2")
+						i->weekday->mon.computer2 = "Occupy";
+					else if (i->computer == "Computer3")
+						i->weekday->mon.computer3 = "Occupy";
+					else if (i->computer == "Computer4")
+						i->weekday->mon.computer4 = "Occupy";
+					else if (i->computer == "Computer5")
+						i->weekday->mon.computer5 = "Occupy";
+					else if (i->computer == "Computer6")
+						i->weekday->mon.computer6 = "Occupy";
+					
+						
 				}
 				else if (i->date == "Tuesday") {
-					if (i->timeslot == "Morning")
-						i->weekday->tue.morning = "Occupy";
-					else
-						i->weekday->tue.afternoon = "Occupy";
+					if (i->computer == "Computer1")
+						i->weekday->tue.computer1 = "Occupy";
+					else if (i->computer == "Computer2")
+						i->weekday->tue.computer2 = "Occupy";
+					else if (i->computer == "Computer3")
+						i->weekday->tue.computer3 = "Occupy";
+					else if (i->computer == "Computer4")
+						i->weekday->tue.computer4 = "Occupy";
+					else if (i->computer == "Computer5")
+						i->weekday->tue.computer5 = "Occupy";
+					else if (i->computer == "Computer6")
+						i->weekday->tue.computer6 = "Occupy";
 				}
 				else if (i->date == "Wednesday") {
-					if (i->timeslot == "Morning")
-						i->weekday->wed.morning = "Occupy";
-					else
-						i->weekday->wed.afternoon = "Occupy";
+					if (i->computer == "Computer1")
+						i->weekday->wed.computer1 = "Occupy";
+					else if (i->computer == "Computer2")
+						i->weekday->wed.computer2 = "Occupy";
+					else if (i->computer == "Computer3")
+						i->weekday->wed.computer3 = "Occupy";
+					else if (i->computer == "Computer4")
+						i->weekday->wed.computer4 = "Occupy";
+					else if (i->computer == "Computer5")
+						i->weekday->wed.computer5 = "Occupy";
+					else if (i->computer == "Computer6")
+						i->weekday->wed.computer6 = "Occupy";
 				}
 				else if (i->date == "Thursday") {
-					if (i->timeslot == "Morning")
-						i->weekday->thur.morning = "Occupy";
-					else
-						i->weekday->thur.afternoon = "Occupy";
+					if (i->computer == "Computer1")
+						i->weekday->thur.computer1 = "Occupy";
+					else if (i->computer == "Computer2")
+						i->weekday->thur.computer2 = "Occupy";
+					else if (i->computer == "Computer3")
+						i->weekday->thur.computer3 = "Occupy";
+					else if (i->computer == "Computer4")
+						i->weekday->thur.computer4 = "Occupy";
+					else if (i->computer == "Computer5")
+						i->weekday->thur.computer5 = "Occupy";
+					else if (i->computer == "Computer6")
+						i->weekday->thur.computer6 = "Occupy";
 				}
 				else if (i->date == "Friday") {
-					if (i->timeslot == "Morning")
-						i->weekday->fri.morning = "Occupy";
-					else
-						i->weekday->fri.afternoon = "Occupy";
+					if (i->computer == "Computer1")
+						i->weekday->fri.computer1 = "Occupy";
+					else if (i->computer == "Computer2")
+						i->weekday->fri.computer2 = "Occupy";
+					else if (i->computer == "Computer3")
+						i->weekday->fri.computer3 = "Occupy";
+					else if (i->computer == "Computer4")
+						i->weekday->fri.computer4 = "Occupy";
+					else if (i->computer == "Computer5")
+						i->weekday->fri.computer5 = "Occupy";
+					else if (i->computer == "Computer6")
+						i->weekday->fri.computer6 = "Occupy";
 				}
 
 				cout << "If you want to permit another applications, please enter back to the Operation Menu" << endl;
@@ -105,57 +154,106 @@ void Admin::cancelApplication(Record* record)
 	string name;
 
     //show the booked student
-	cout << "Name\t" << "Date\t" << "Time slot\t" << endl;
+	cout << "Name\t" << "Date\t" << "Time slot\t" << "Computer\t" << endl;
 	cout << "------------------------------------------------------------------------" << endl;
 	for (auto i : record->Students)
 		if (i->status == "Verified") {
-			cout << i->name << "\t" << i->date << "\t" << i->timeslot << "\t" << endl;
+			cout << i->name << "\t" << i->date << "\t" << i->timeslot << "\t" << i->computer << "\t" << endl;
 		}
 	cout << "------------------------------------------------------------------------" << endl; 
 
 	cout << "------------------------------------------------------------------------" << endl;
 	cout << "If you want to cancel an application, please enter the name of applicant" << endl;
 	cout << "------------------------------------------------------------------------" << endl;
+	cout << "Or enter back to the Admin's main menu" << endl;
+	cout << "------------------------------------------------------------------------" << endl;
 	cin >> name;
 
 	for (auto i : record->Students)
 	{
+		if (name == "back")
+		{
+			break;
+		}
 		if (i->name == name)
 		{	
 			if (i->status == "Verified")
 			{
 				i->status = "None";// set student's status to the default
+				i->timeslot = "None";
+				i->computer = "None";
+				i->date = "None";
 
 				// set the lab's status to the available
 				if (i->date == "Monday") {
-					if (i->timeslot == "Morning")
-						i->weekday->mon.morning = "Available";
-					else
-						i->weekday->mon.afternoon = "Available";
+					if (i->computer == "Computer1")
+						i->weekday->mon.computer1 = "Available";
+					else if (i->computer == "Computer2")
+						i->weekday->mon.computer2 = "Available";
+					else if (i->computer == "Computer3")
+						i->weekday->mon.computer3 = "Available";
+					else if (i->computer == "Computer4")
+						i->weekday->mon.computer4 = "Available";
+					else if (i->computer == "Computer5")
+						i->weekday->mon.computer5 = "Available";
+					else if (i->computer == "Computer6")
+						i->weekday->mon.computer6 = "Available";
 				}
 				else if (i->date == "Tuesday") {
-					if (i->timeslot == "Morning")
-						i->weekday->tue.morning = "Available";
-					else
-						i->weekday->tue.afternoon = "Available";
+					if (i->computer == "Computer1")
+						i->weekday->tue.computer1 = "Available";
+					else if (i->computer == "Computer2")
+						i->weekday->tue.computer2 = "Available";
+					else if (i->computer == "Computer3")
+						i->weekday->tue.computer3 = "Available";
+					else if (i->computer == "Computer4")
+						i->weekday->tue.computer4 = "Available";
+					else if (i->computer == "Computer5")
+						i->weekday->tue.computer5 = "Available";
+					else if (i->computer == "Computer6")
+						i->weekday->tue.computer6 = "Available";
 				}
 				else if (i->date == "Wednesday") {
-					if (i->timeslot == "Morning")
-						i->weekday->wed.morning = "Available";
-					else
-						i->weekday->wed.afternoon = "Available";
+					if (i->computer == "Computer1")
+						i->weekday->wed.computer1 = "Available";
+					else if (i->computer == "Computer2")
+						i->weekday->wed.computer2 = "Available";
+					else if (i->computer == "Computer3")
+						i->weekday->wed.computer3 = "Available";
+					else if (i->computer == "Computer4")
+						i->weekday->wed.computer4 = "Available";
+					else if (i->computer == "Computer5")
+						i->weekday->wed.computer5 = "Available";
+					else if (i->computer == "Computer6")
+						i->weekday->wed.computer6 = "Available";
 				}
 				else if (i->date == "Thursday") {
-					if (i->timeslot == "Morning")
-						i->weekday->thur.morning = "Available";
-					else
-						i->weekday->thur.afternoon = "Available";
+					if (i->computer == "Computer1")
+						i->weekday->thur.computer1 = "Available";
+					else if (i->computer == "Computer2")
+						i->weekday->thur.computer2 = "Available";
+					else if (i->computer == "Computer3")
+						i->weekday->thur.computer3 = "Available";
+					else if (i->computer == "Computer4")
+						i->weekday->thur.computer4 = "Available";
+					else if (i->computer == "Computer5")
+						i->weekday->thur.computer5 = "Available";
+					else if (i->computer == "Computer6")
+						i->weekday->thur.computer6 = "Available";
 				}
 				else if (i->date == "Friday") {
-					if (i->timeslot == "Morning")
-						i->weekday->fri.morning = "Available";
-					else
-						i->weekday->fri.afternoon = "Available";
+					if (i->computer == "Computer1")
+						i->weekday->fri.computer1 = "Available";
+					else if (i->computer == "Computer2")
+						i->weekday->fri.computer2 = "Available";
+					else if (i->computer == "Computer3")
+						i->weekday->fri.computer3 = "Available";
+					else if (i->computer == "Computer4")
+						i->weekday->fri.computer4 = "Available";
+					else if (i->computer == "Computer5")
+						i->weekday->fri.computer5 = "Available";
+					else if (i->computer == "Computer6")
+						i->weekday->fri.computer6 = "Available";
 				}
 
 				cout << "-----------------------" << endl;
@@ -201,11 +299,17 @@ void Admin::changeInfo(Record* record)
 	cout << "----------------------------------------------------------------------------" << endl;
 	cout << "If you want to change someone's information, please enter the name of people" << endl;
 	cout << "----------------------------------------------------------------------------" << endl;
+	cout << "Or enter back to the Admin's main menu" << endl;
+	cout << "------------------------------------------------------------------------" << endl;
 	cin >> name;
 
 	// find the name in Student vector and Teacher vector
 	for (auto i : record->Students)
 	{
+		if (name == "back")
+		{
+			break;
+		}
 		if (name == i->name)
 		{
 			cout << "Please enter the new password for this people" << endl;
@@ -223,7 +327,6 @@ void Admin::changeInfo(Record* record)
 				break;
 			}
 			break;
-			break;
 		}
 	}
 
@@ -231,6 +334,10 @@ void Admin::changeInfo(Record* record)
 	{
 		for (auto i : record->Teachers)
 		{
+			if (name == "back")
+			{
+				break;
+			}
 			if (name == i->name)
 			{
 				cout << "Please enter the new password for this people" << endl;
@@ -275,6 +382,7 @@ void Admin::addUser(Record* record)
 	cout << "--------------------------------" << endl;
 	cout << "1.---------Teacher--------------" << endl;
 	cout << "2.---------Student--------------" << endl;
+	cout << "3.---------Back--------------" << endl;
 	cout << "Please enter the number" << endl;
 	int temp = get_user_input();
 	switch (temp) {
@@ -288,11 +396,44 @@ void Admin::addUser(Record* record)
 		cout << "You have successfully add a Student! " << endl;
 		cout << "-------------------------------------" << endl;
 		break;
+	case 3:
+		cout << "Go back to the Admin's main menu" << endl;
+		cout << "-------------------------------------" << endl;
+		break;
 	default:
-		cout << "Please enter a reasonable number from 1 to 5. " << endl;
+		cout << "Please enter a reasonable number from 1 to 3. " << endl;
 		operationMenu(); break;
 	}
 
+}
+
+void Admin::deleteUser(Record* record)
+{
+	showAlluser(record);
+	cout << "--------------------------------" << endl;
+	cout << "Please enter the user's role" << endl;
+	cout << "--------------------------------" << endl;
+	cout << "1.---------Teacher--------------" << endl;
+	cout << "2.---------Student--------------" << endl;
+	cout << "3.---------Back--------------" << endl;
+	cout << "Please enter the number" << endl;
+
+	int temp = get_user_input();
+	switch (temp) {
+	case 1:
+		this->deleteTeacher(record);
+		break;
+	case 2:
+		this->deleteStudent(record);
+		break;
+	case 3:
+		cout << "Go back to the Admin's main menu" << endl;
+		cout << "-------------------------------------" << endl;
+		break;
+	default:
+		cout << "Please enter a reasonable number from 1 to 3. " << endl;
+		operationMenu(); break;
+	}
 }
 
 void Admin::addStudent(Record* record)
@@ -337,6 +478,85 @@ void Admin::addTeacher(Record* record)
 	record->Teachers.push_back(newTeacher);
 }
 
+void Admin::deleteStudent(Record* record)
+{
+	string name;
+	cout << "please enter this student's name" << endl;
+	cin >> name;
+	for (int i = 0; i < (int)record->Students.size(); i++)
+	{
+		if (record->Students[i]->name == name)
+		{
+			record->Students.erase(record->Students.begin()+i);
+			record->size--;
+			cout << "You have successfully delete this user" << endl;
+			cout << "-------------------------------------------------------------------------------------" << endl;
+			cout << "If you want to delete someone else, please enter back to the Operation Menu" << endl;
+			cout << "-------------------------------------------------------------------------------------" << endl;
+			cin >> name;
+			if (name == "back")
+			{
+				break;
+			}
+			break;
+		}
+		if (i == record->Students.size() - 1)
+		{
+			cout << "There is no such user" << endl;
+			break;
+			cout << "-------------------------------------------------------------------------------------" << endl;
+			cout << "If you want to delete someone else, please enter back to the Operation Menu" << endl;
+			cout << "-------------------------------------------------------------------------------------" << endl;
+			cin >> name;
+			if (name == "back")
+			{
+				break;
+			}
+			break;
+		}
+	}
+
+}
+
+void Admin::deleteTeacher(Record* record)
+{
+	string name;
+	cout << "please enter this teacher's name" << endl;
+	cin >> name;
+	for (int i = 0; i < (int)record->Teachers.size(); i++)
+	{
+		if (record->Teachers[i]->name == name)
+		{
+			record->Teachers.erase(record->Teachers.begin() + i);
+			record->size--;
+			cout << "You have successfully delete this user" << endl;
+			cout << "-------------------------------------------------------------------------------------" << endl;
+			cout << "If you want to delete someone else, please enter back to the Operation Menu" << endl;
+			cout << "-------------------------------------------------------------------------------------" << endl;
+			cin >> name;
+			if (name == "back")
+			{
+				break;
+			}
+			break;
+		}
+		if (i == record->Teachers.size() - 1)
+		{
+			cout << "There is no such user" << endl;
+			break;
+			cout << "-------------------------------------------------------------------------------------" << endl;
+			cout << "If you want to delete someone else, please enter back to the Operation Menu" << endl;
+			cout << "-------------------------------------------------------------------------------------" << endl;
+			cin >> name;
+			if (name == "back")
+			{
+				break;
+			}
+			break;
+		}
+	}
+}
+
 
 void Admin::operationMenu()
 {
@@ -352,6 +572,8 @@ void Admin::operationMenu()
 	cout << "|        4.Change user's password  |\n";
 	cout << "|                                  |\n";
 	cout << "|        5.Add User                |\n";
+	cout << "|                                  |\n";
+	cout << "|        6.Delete User             |\n";
 	cout << "|                                  |\n";
 	cout << "|        0.Quit                    |\n";
 	cout << " ----------------------------------\n";

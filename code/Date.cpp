@@ -17,11 +17,33 @@ Date::Date() {
 }
 
 void Date::printData() {
-    cout<< "Date" << "\t\t" << "Morning" <<"\t\t"<< "Afternoon"<<endl;
-    cout<<"--------------------------------------------------------------"<<endl;
-    cout<< mon.day << "\t\t"<< mon.morning << "\t\t" << mon.afternoon<< endl;
-    cout<< tue.day << "\t\t"<< tue.morning << "\t\t" << tue.afternoon<< endl;
-    cout<< wed.day << "\t"<< wed.morning << "\t\t" << wed.afternoon<< endl;
-    cout<< thur.day << "\t"<< thur.morning << "\t\t" << thur.afternoon<< endl;
-    cout<< fri.day << "\t\t"<< fri.morning << "\t\t" << fri.afternoon<< endl;
+    string timeslot;
+    cout << "Please select morning or afternoon" << endl;
+    cin >> timeslot;
+    if (timeslot == "morning")
+    {
+        cout << "Date" << "\t\t" << "Computer 1" << "\t" << "Computer 2" << "\t" << "Computer 3" << endl;
+        cout << "---------------------------------------------------------------------------------------------------------------" << endl;
+        cout << mon.day << "\t\t" << mon.computer1 << "\t" << mon.computer2 << "\t" << mon.computer3 << endl;
+        cout << tue.day << "\t\t" << tue.computer1 << "\t" << tue.computer2 << "\t" << tue.computer3 << endl;
+        cout << wed.day << "\t" << wed.computer1 << "\t" << wed.computer2 << "\t" << wed.computer3 << endl;
+        cout << thur.day << "\t" << thur.computer1 << "\t" << thur.computer2 << "\t" << thur.computer3 << endl;
+        cout << fri.day << "\t\t" << fri.computer1 << "\t" << fri.computer2 << "\t" << fri.computer3 << endl;
+    }
+    else if (timeslot == "afternoon")
+    {
+        cout << "Date" << "\t\t" << "Computer 1" << "\t" << "Computer 2" << "\t" << "Computer 3" << endl;
+        cout << "---------------------------------------------------------------------------------------------------------------" << endl;
+        cout << mon.day << "\t\t" << mon.computer4 << "\t" << mon.computer5 << "\t" << mon.computer6 << endl;
+        cout << tue.day << "\t\t" << tue.computer4 << "\t" << tue.computer5 << "\t" << tue.computer6 << endl;
+        cout << wed.day << "\t" << wed.computer4 << "\t" << wed.computer5 << "\t" << wed.computer6 << endl;
+        cout << thur.day << "\t" << thur.computer4 << "\t" << thur.computer5 << "\t" << thur.computer6 << endl;
+        cout << fri.day << "\t\t"<< fri.computer4 << "\t" << fri.computer5 << "\t" << fri.computer6 << endl;
+    }
+    else
+    {
+        cout << "-------------------------------------" << endl;
+        cout << "You enter the wrong word." << endl;
+        cout << "-------------------------------------" << endl;
+    }
 };

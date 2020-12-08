@@ -14,8 +14,9 @@ class Record
 {
 public:
 	Record();
-
+	~Record();
 	Admin* a;
+
 	void updateRecord(Student* stu);  // add the student object to the vector
 	void updateRecord(Teacher* tea);  // add the teacher object to the vector
 	void updateRecord(Admin* adm);
@@ -25,9 +26,6 @@ public:
 	vector<Student*> Students;  // store the student object
 	vector<Teacher*> Teachers;  // store the teacher object
 	vector<Admin*> Admins;
-
-
-	/*map<int, Student> Data;*/
 
 };
 

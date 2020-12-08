@@ -65,7 +65,7 @@ int get_user_input() {
 	int input;
 	std::string input_string;
 	bool valid_input = false;
-	int menu_items = 5;
+	int menu_items = 6;
 
 	do {
 		std::cout << "\nSelect item: ";
@@ -226,6 +226,9 @@ void menu_item_3() {
 			break;
 		case 5:
 			admin->addUser(record);
+			break;
+		case 6:
+			admin->deleteUser(record);
 			break;
 		default:
 			cout << "You have Logged out." << endl;
